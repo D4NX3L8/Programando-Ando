@@ -1,0 +1,20 @@
+# Archivos compilados
+out/
+bin/
+*.class
+
+# Base de datos local (se regenera al ejecutar la Guia 2)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Logs y temporales
+*.log
+.vscode/workspaceStorage/
+hs_err_pid*
+replay_pid*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
