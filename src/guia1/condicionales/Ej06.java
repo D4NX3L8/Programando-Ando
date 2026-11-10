@@ -9,7 +9,7 @@ package guia1.condicionales;
  *  * 90-100 Excelente | 80-89 Bueno | 70-79 Aceptable | 60-69 Insuficiente | <60 Reprobado.
  *  * Valida que la nota este en el rango 0-100.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej06 {
 

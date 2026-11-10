@@ -8,7 +8,7 @@ package guia1.ciclos;
  * Cuenta cuantos numeros del 1 al 200 son multiplos de 10 usando un ciclo for.
  *  * Resultado esperado: 20.
  *
- * Autor: Jeronimo Henao
+ * Autor: Daniel Ochoa Taborda
  */
 public class Ej19 {
 

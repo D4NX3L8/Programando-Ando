@@ -7,7 +7,7 @@ package guia1.arreglos;
  * Enunciado:
  * Encuentra el numero menor dentro de un arreglo int[] usando un ciclo for.
  *
- * Autor: Juan Pablo Arismendy
+ * Autor: Daniel Ochoa Taborda
  */
 public class Ej25 {
 

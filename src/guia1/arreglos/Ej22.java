@@ -7,7 +7,7 @@ package guia1.arreglos;
  * Enunciado:
  * Declara un arreglo int[] de 10 numeros e imprime cada elemento con un ciclo for.
  *
- * Autor: Juan Pablo Arismendy
+ * Autor: Jeronimo Henao
  */
 public class Ej22 {
 

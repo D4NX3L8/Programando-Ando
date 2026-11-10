@@ -101,6 +101,6 @@ git pull origin main
 git checkout -b mi-rama
 # ... trabajar ...
 git add .
-git commit -m "feat(guia1): ejercicios 1-10"
+git commit -m "feat(guia1): ejercicios de condicionales"
 git push -u origin mi-rama
 ```

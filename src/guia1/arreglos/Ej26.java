@@ -7,7 +7,7 @@ package guia1.arreglos;
  * Enunciado:
  * Cuenta cuantas veces aparece un numero especifico dentro de un arreglo int[].
  *
- * Autor: Juan Pablo Arismendy
+ * Autor: Jeronimo Henao
  */
 public class Ej26 {
 

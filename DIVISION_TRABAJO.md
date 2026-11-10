@@ -64,7 +64,7 @@ Formato: `tipo(alcance): descripción en imperativo`
 Ejemplos:
 
 ```
-feat(guia1): ejercicios 1-10 de condicionales
+feat(guia1): ejercicios de condicionales y ciclos
 feat(guia2): DAO de usuarios y platos con PreparedStatement
 docs(guia2): diagrama de clases del sistema
 fix(guia2): validar division entre cero en la calculadora
@@ -113,7 +113,7 @@ El driver SQLite ya está en `libs/` y configurado en `.vscode/settings.json`.
 
 | | Daniel Ochoa Taborda | Jeronimo Henao | Juan Pablo Arismendy |
 |---|---|---|---|
-| **Guía 1** | Ejercicios **1–10** (condicionales) | Ejercicios **11–21** (ciclos) | Ejercicios **22–29** (arreglos, anidados, String) |
+| **Guía 1** | **2, 8, 9, 17, 19, 20, 25, 27, 28** · 9 ej · **16 pts** | **3, 4, 10, 11, 14, 16, 21, 22, 24, 26** · 10 ej · **17 pts** | **1, 5, 6, 7, 12, 13, 15, 18, 23, 29** · 10 ej · **17 pts** |
 | **Guía 2 — evidencia** | **GA2-AA1-EV02** (SQLite) + modelos + DAO + datos iniciales | **Modulo B/D** (login, sesión) + wiring | **Modulo C** (CRUD visual) + **EV01** (migración JOptionPane) |
 | **Guía 2 — try-catch** | EJ1 y EJ2 | EJ3 y EJ4 | EJ5 y EJ6 |
 | **Documentos** | Esquema SQL en `docs/DISENO.md` | Flujo de login en `docs/DISENO.md` | `docs/DISENO.md` completo + `docs/EV01_JOOPTIONPANE.md` |
@@ -131,74 +131,107 @@ existen** en el repositorio (aunque su cuerpo esté en `TODO`).
 **Carpeta:** `src/guia1/` · **Menú de prueba:** `guia1.Guia1Main`
 **Todos** usan `Scanner` para la entrada y se ejecutan sin errores.
 
-### 3.1 Daniel — Ejercicios 1 a 10 (condicionales)
+### 3.1 Reparto equitativo (por qué así)
 
-**Carpeta:** `src/guia1/condicionales/` · **Archivos:** `Ej01.java` … `Ej10.java`
+Cada ejercicio vale según su nivel: **Básico = 1 punto, Medio = 2 puntos, Avanzado = 3 puntos**.
+La guía suma **50 puntos**, que no se pueden repartir exactos entre tres (16,67 cada uno),
+así que el reparto más justo posible es **17 / 17 / 16**:
+
+| | Daniel Ochoa | Jeronimo Henao | Juan Pablo Arismendy |
+|---|---|---|---|
+| **Ejercicios** | 2, 8, 9, 17, 19, 20, 25, 27, 28 | 3, 4, 10, 11, 14, 16, 21, 22, 24, 26 | 1, 5, 6, 7, 12, 13, 15, 18, 23, 29 |
+| **Cantidad** | 9 | 10 | 10 |
+| **Básicos (1 pt)** | 3 | 4 | 4 |
+| **Medios (2 pts)** | 5 | 5 | 5 |
+| **Avanzados (3 pts)** | 1 | 1 | 1 |
+| **Puntos totales** | **16** | **17** | **17** |
+| **Condicionales** | 3 | 3 | 4 |
+| **Ciclos** | 3 | 4 | 4 |
+| **Arreglos** | 3 | 3 | 2 |
+
+**Todos tienen exactamente 5 ejercicios medios y 1 avanzado.** La única diferencia es un
+básico más para Jeronimo y Juan Pablo, porque Daniel asume la carga más pesada de la Guía 2
+(toda la capa de persistencia). Y los tres trabajan las tres temáticas: nadie se queda solo
+con condicionales ni solo con ciclos.
+
+> 16 + 17 + 17 = 50. No existe un reparto más parejo que este: si se igualan los puntos a 17,
+> uno tendría que quedar en 16 por fuerza. Daniel queda con 9 ejercicios para compensar su
+> mayor trabajo en la Guía 2.
+
+### 3.2 Daniel Ochoa — 9 ejercicios (16 puntos)
+
+**Archivos:** `condicionales/Ej02.java`, `Ej08.java`, `Ej09.java` ·
+`ciclos/Ej17.java`, `Ej19.java`, `Ej20.java` · `arreglos/Ej25.java`, `Ej27.java`, `Ej28.java`
 
 ---
 
-**Ej01 · Positivo, negativo o cero** — `Ej01.java`
-- Pide un número entero.
-- Lógica: `if (n > 0)` → `"Positivo"`; `else if (n < 0)` → `"Negativo"`; `else` → `"Cero"`.
-- Aceptación: probar `5`, `-3` y `0`.
-
-**Ej02 · Par o impar** — `Ej02.java`
+**Ej02 · Par o impar** — `src/guia1/condicionales/Ej02.java`
 - Pide un número entero.
 - Lógica: `n % 2 == 0` → `"Par"`, si no `"Impar"`.
-- Debe funcionar también con negativos (`-4` es par) y con `0` (es par).
+- Debe funcionar con negativos (`-4` es par) y con `0` (es par).
 
-**Ej03 · Control de acceso por edad** — `Ej03.java`
-- Pide la edad (entero).
-- **Validar primero** `edad < 0` → `"Edad invalida"`.
-- Luego: `edad >= 18` → `"Puede ingresar"`; si no → `"Acceso denegado"`.
-- Aceptación: `20`, `15`, `-1` (el orden de las condiciones es lo que se evalúa).
-
-**Ej04 · Calculadora con switch** — `Ej04.java`
-- Pide dos números (`double`) y un operador con `sc.next().charAt(0)`.
-- `switch (op)` con casos `'+'`, `'-'`, `'*'`, `'/'`.
-- En `'/'`: si el divisor es `0` → `"No se puede dividir entre cero"` (validar **antes**
-  de dividir).
-- `default` → `"Operador invalido"`.
-- Salida: `"Resultado: " + resultado`.
-- Aceptación: `8 2 +` → 10; `8 0 /` → mensaje de error; `8 2 %` → operador inválido.
-
-**Ej05 · Año bisiesto** — `Ej05.java`
-- Pide un año entero.
-- Lógica exacta:
-  ```java
-  boolean bisiesto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
-  ```
-- Salida: `"2024 es bisiesto"` / `"2023 no es bisiesto"`.
-- Aceptación: `2024` sí, `1900` no, `2000` sí (los tres casos de la regla).
-
-**Ej06 · Clasificación de notas** — `Ej06.java`
-- Pide una nota entera.
-- **Validar primero** el rango: si `nota < 0 || nota > 100` → `"Nota invalida"` y no seguir.
-- Clasificar usando condiciones descendentes (sin repetir el límite superior):
-  `>= 90` Excelente · `>= 80` Bueno · `>= 70` Aceptable · `>= 60` Insuficiente · resto Reprobado.
-- Aceptación: `95`, `85`, `75`, `65`, `40`, `101` y `-5`.
-
-**Ej07 · Mayor de tres números** — `Ej07.java`
-- Pide tres enteros.
-- Calcula el mayor con `Math.max(a, Math.max(b, c))`.
-- Cuenta cuántos son iguales al mayor; si son 2 → `"Empate entre dos numeros"`,
-  si son 3 → `"Empate entre los tres"`.
-- Aceptación: `3 7 5` → 7 sin empate; `7 7 5` → empate de dos; `7 7 7` → empate de tres.
-
-**Ej08 · Descuento por compra** — `Ej08.java`
+**Ej08 · Descuento por compra** — `src/guia1/condicionales/Ej08.java`
 - Pide el valor de la compra (`double`). Validar que sea `>= 0`.
 - Descuento: `> 500000` → 20 %; `> 200000` → 15 %; `> 100000` → 10 %; si no, 0 %.
 - Mostrar **tres líneas**: valor original, valor del descuento, total a pagar.
 - Usar `String.format("%,.0f", valor)` para que se vea `$500.000`.
 
-**Ej09 · Login con equals** — `Ej09.java`
+**Ej09 · Login con equals** — `src/guia1/condicionales/Ej09.java`
 - Pide usuario y contraseña con `sc.next()`.
 - Comparar `usuario.equals("admin") && clave.equals("1234")`.
 - `"Bienvenido"` o `"Credenciales incorrectas"`.
-- Aceptación: `admin 1234` y `admin 1111` (debe fallar; si comparas con `==` fallaría también
-  el caso correcto según cómo se lea el texto).
+- Aceptación: `admin 1234` y `admin 1111` (debe fallar).
 
-**Ej10 · Calculadora de IMC** — `Ej10.java`
+**Ej17 · Tabla de multiplicar del 7** — `src/guia1/ciclos/Ej17.java`
+- Tabla del 7 del 1 al 10 con un `for`.
+- Formato exacto: `7 x 1 = 7` … `7 x 10 = 70`.
+
+**Ej19 · Múltiplos de 10 del 1 al 200** — `src/guia1/ciclos/Ej19.java`
+- Contar cuántos números del 1 al 200 son múltiplos de 10 con un `for`.
+- Patrón **contador** (`contador++`), no acumulador.
+- Resultado esperado: `20`.
+
+**Ej20 · Divisibles entre 3 y 5** — `src/guia1/ciclos/Ej20.java`
+- Mostrar los números del 1 al 100 que sean divisibles entre 3 **Y** entre 5 a la vez.
+- Condición: `i % 3 == 0 && i % 5 == 0` (equivale a `i % 15 == 0`).
+
+**Ej25 · Menor de un arreglo** — `src/guia1/arreglos/Ej25.java`
+- Declarar `int[] nums = {5, 12, 7, 3, 20, 8, 15, 1, 9, 4};`
+- Encontrar el menor con un ciclo. Iniciar en `nums[0]` (no en `0`, rompe con negativos).
+- Resultado esperado: `1`.
+
+**Ej27 · Cuadrado de asteriscos 6×6** — `src/guia1/arreglos/Ej27.java` *(Avanzado)*
+- Dos `for` anidados: 6 filas × 6 columnas.
+- El interno imprime con `print` (sin salto); el externo cierra la fila con `println()`.
+- Resultado: 6 filas de `* * * * * *`.
+
+**Ej28 · Primeros 20 números y su cubo** — `src/guia1/arreglos/Ej28.java`
+- `for` del 1 al 20 mostrando número y `n * n * n`.
+- Formato: `1 -> 1` … `20 -> 8000`.
+- Ojo: `^` en Java **no** es potencia (es XOR).
+
+### 3.3 Jeronimo Henao — 10 ejercicios (17 puntos)
+
+**Archivos:** `condicionales/Ej03.java`, `Ej04.java`, `Ej10.java` ·
+`ciclos/Ej11.java`, `Ej14.java`, `Ej16.java`, `Ej21.java` ·
+`arreglos/Ej22.java`, `Ej24.java`, `Ej26.java`
+
+---
+
+**Ej03 · Control de acceso por edad** — `src/guia1/condicionales/Ej03.java`
+- Pide la edad (entero).
+- **Validar primero** `edad < 0` → `"Edad invalida"`.
+- Luego: `edad >= 18` → `"Puede ingresar"`; si no → `"Acceso denegado"`.
+- Aceptación: `20`, `15`, `-1`.
+
+**Ej04 · Calculadora con switch** — `src/guia1/condicionales/Ej04.java`
+- Pide dos números (`double`) y un operador con `sc.next().charAt(0)`.
+- `switch (op)` con `'+'`, `'-'`, `'*'`, `'/'`.
+- En `'/'`: si el divisor es `0` → `"No se puede dividir entre cero"` (validar **antes** de dividir).
+- `default` → `"Operador invalido"`. Salida: `"Resultado: " + resultado`.
+- Aceptación: `8 2 +` → 10; `8 0 /` → error; `8 2 %` → operador inválido.
+
+**Ej10 · Calculadora de IMC** — `src/guia1/condicionales/Ej10.java` *(Avanzado)*
 - Pide peso (kg) y altura (m) como `double`.
 - Validar `peso > 0` y `altura > 0` antes de calcular.
 - `imc = peso / (altura * altura)`.
@@ -206,65 +239,95 @@ existen** en el repositorio (aunque su cuerpo esté en `TODO`).
 - Mostrar el IMC con 2 decimales y la clasificación.
 - Aceptación: `70 1.75` → 22.86 Normal.
 
-### 3.2 Jeronimo — Ejercicios 11 a 21 (ciclos)
+**Ej11 · Números del 1 al 50** — `src/guia1/ciclos/Ej11.java`
+- `for` de 1 a 50, un número por línea.
 
-**Carpeta:** `src/guia1/ciclos/` · **Archivos:** `Ej11.java` … `Ej21.java`
+**Ej14 · Impares del 1 al 100 con while** — `src/guia1/ciclos/Ej14.java`
+- Obligatorio `while`; la variable se incrementa **dentro** del ciclo (si no, es infinito).
+- Resultado: 1, 3, 5, … 99 (50 líneas).
 
-| # | Archivo | Qué debe hacer exactamente | Resultado esperado |
-|---|---|---|---|
-| 11 | `Ej11.java` | `for` de 1 a 50, un número por línea | `1` … `50` |
-| 12 | `Ej12.java` | `for` de 50 a 1 con `i--` | `50` … `1` |
-| 13 | `Ej13.java` | `for` de 1 a 100 y solo `i % 2 == 0` | 50 líneas: 2, 4, … 100 |
-| 14 | `Ej14.java` | **`while`** de 1 a 100 con impares | 1, 3, … 99 (50 líneas) |
-| 15 | `Ej15.java` | Acumulador `suma += i` de 1 a 100 | `5050` |
-| 16 | `Ej16.java` | Suma de impares de 1 a 50 | `625` |
-| 17 | `Ej17.java` | Tabla del 7 del 1 al 10 con formato | `7 x 1 = 7` … `7 x 10 = 70` |
-| 18 | `Ej18.java` | `for` anidados: tablas del 1 al 10, cada una con encabezado | `--- Tabla del 1 ---` … |
-| 19 | `Ej19.java` | Contador de múltiplos de 10 en 1..200 | `20` |
-| 20 | `Ej20.java` | 1..100 con `i % 3 == 0 && i % 5 == 0` | 15, 30, … 90 |
-| 21 | `Ej21.java` | Factorial de una variable `int n = 10` con `long` | `3628800` |
+**Ej16 · Suma de impares del 1 al 50** — `src/guia1/ciclos/Ej16.java`
+- Acumulador declarado **fuera** del ciclo (`int suma = 0;`).
+- Resultado esperado: `625`.
 
-**Detalles que se califican:**
+**Ej21 · Factorial** — `src/guia1/ciclos/Ej21.java`
+- Factorial de una variable (`int n = 10`) con un `for`.
+- Validar `n >= 0`; el factorial de `0` es `1`.
+- Usar `long` (`int` se desborda desde 13!). Resultado con `n = 10`: `3628800`.
 
-- **Ej12:** el ciclo debe ser descendente (`i = 50; i >= 1; i--`), no imprimir un arreglo al revés.
-- **Ej13:** se acepta `i += 2` o `if (i % 2 == 0)`; lo importante es que use `for`.
-- **Ej14:** obligatorio `while`; la variable se incrementa **dentro** del ciclo (si no, es infinito).
-- **Ej15/16:** el acumulador se declara **fuera** del ciclo (`int suma = 0;`).
-- **Ej18:** el ciclo interno se ejecuta completo por cada vuelta del externo.
-- **Ej19:** patrón contador (`contador++`), no acumulador.
-- **Ej21:** validar `n >= 0`; el factorial de `0` es `1`. Usar `long` (`int` se desborda desde 13!).
+**Ej22 · Recorrer un arreglo** — `src/guia1/arreglos/Ej22.java`
+- Declarar `int[] nums` con 10 valores de ejemplo.
+- Recorrer con índice de `0` a `nums.length - 1` (usar `<`, no `<=`).
+- Imprimir `nums[0] = 5` … `nums[9] = 4`.
 
-### 3.3 Juan Pablo — Ejercicios 22 a 29 (arreglos, anidados y String)
+**Ej24 · Mayor de un arreglo** — `src/guia1/arreglos/Ej24.java`
+- Encontrar el mayor con un ciclo. Iniciar en `nums[0]`.
+- Resultado esperado: `20`.
 
-**Carpeta:** `src/guia1/arreglos/` · **Archivos:** `Ej22.java` … `Ej29.java`
+**Ej26 · Contar ocurrencias** — `src/guia1/arreglos/Ej26.java`
+- Contar cuántas veces aparece `int buscado = 7` en el arreglo.
+- Contador que aumenta cuando `n == buscado`.
+- Mensaje: `7 aparece 1 vez`.
 
-Todos los ejercicios de arreglos declaran el arreglo **con valores de ejemplo** antes del ciclo:
+### 3.4 Juan Pablo Arismendy — 10 ejercicios (17 puntos)
 
-```java
-int[] nums = {5, 12, 7, 3, 20, 8, 15, 1, 9, 4};
-```
+**Archivos:** `condicionales/Ej01.java`, `Ej05.java`, `Ej06.java`, `Ej07.java` ·
+`ciclos/Ej12.java`, `Ej13.java`, `Ej15.java`, `Ej18.java` ·
+`arreglos/Ej23.java`, `Ej29.java`
 
-| # | Archivo | Qué debe hacer exactamente | Resultado esperado |
-|---|---|---|---|
-| 22 | `Ej22.java` | Recorrer el arreglo de 10 e imprimir índice y valor | `nums[0] = 5` … `nums[9] = 4` |
-| 23 | `Ej23.java` | Sumar todos los elementos | `84` |
-| 24 | `Ej24.java` | Mayor del arreglo (iniciar con `nums[0]`) | `20` |
-| 25 | `Ej25.java` | Menor del arreglo | `1` |
-| 26 | `Ej26.java` | Contar ocurrencias de un valor (`int buscado = 7`) | `7 aparece 1 vez` |
-| 27 | `Ej27.java` | Cuadrado 6×6 de asteriscos con `for` anidados | 6 filas de `* * * * * *` |
-| 28 | `Ej28.java` | Primeros 20 números y su cubo | `1 -> 1` … `20 -> 8000` |
-| 29 | `Ej29.java` | Recorrer un `String` e imprimir un carácter por línea | `P`, `r`, `o`, … |
+---
 
-**Detalles que se califican:**
+**Ej01 · Positivo, negativo o cero** — `src/guia1/condicionales/Ej01.java`
+- Pide un número entero.
+- `if (n > 0)` → `"Positivo"`; `else if (n < 0)` → `"Negativo"`; `else` → `"Cero"`.
+- Aceptación: `5`, `-3` y `0`.
 
-- **Ej22:** el índice va de `0` a `nums.length - 1` (usar `<`, no `<=`).
-- **Ej24/25:** si inicializas el mayor en `0`, falla con arreglos de negativos; debe ser `nums[0]`.
-- **Ej26:** contador que aumenta cuando `n == buscado`; el mensaje debe incluir el número y la cantidad.
-- **Ej27:** el interno imprime con `print` (sin salto) y el externo cierra la fila con `println()`.
-- **Ej28:** `i * i * i`; el operador `^` en Java **no** es potencia (es XOR).
-- **Ej29:** usar `texto.length()` y `texto.charAt(i)`; un `for` clásico, no `for-each`.
+**Ej05 · Año bisiesto** — `src/guia1/condicionales/Ej05.java`
+- Pide un año entero.
+- Lógica exacta:
+  ```java
+  boolean bisiesto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
+  ```
+- Salida: `"2024 es bisiesto"` / `"2023 no es bisiesto"`.
+- Aceptación: `2024` sí, `1900` no, `2000` sí.
 
-### 3.4 Cómo se comprueba la Guía 1 (los tres)
+**Ej06 · Clasificación de notas** — `src/guia1/condicionales/Ej06.java`
+- Pide una nota entera.
+- **Validar primero** el rango: si `nota < 0 || nota > 100` → `"Nota invalida"` y no seguir.
+- Clasificar descendente: `>= 90` Excelente · `>= 80` Bueno · `>= 70` Aceptable ·
+  `>= 60` Insuficiente · resto Reprobado.
+- Aceptación: `95`, `85`, `75`, `65`, `40`, `101` y `-5`.
+
+**Ej07 · Mayor de tres números** — `src/guia1/condicionales/Ej07.java`
+- Pide tres enteros.
+- Mayor con `Math.max(a, Math.max(b, c))`.
+- Contar cuántos son iguales al mayor: 2 → `"Empate entre dos numeros"`, 3 → `"Empate entre los tres"`.
+- Aceptación: `3 7 5`, `7 7 5`, `7 7 7`.
+
+**Ej12 · Números del 50 al 1** — `src/guia1/ciclos/Ej12.java`
+- `for` descendente (`i = 50; i >= 1; i--`), un número por línea.
+
+**Ej13 · Pares del 1 al 100** — `src/guia1/ciclos/Ej13.java`
+- `for` de 1 a 100 mostrando solo los pares (`i % 2 == 0` o `i += 2`).
+- Resultado: 2, 4, … 100.
+
+**Ej15 · Suma del 1 al 100** — `src/guia1/ciclos/Ej15.java`
+- Acumulador `suma += i` dentro del `for`.
+- Resultado esperado: `5050`.
+
+**Ej18 · Tablas del 1 al 10** — `src/guia1/ciclos/Ej18.java`
+- `for` anidados: por cada tabla (1 a 10) el interno recorre del 1 al 10.
+- Encabezado por tabla: `--- Tabla del 1 ---`.
+
+**Ej23 · Suma de un arreglo** — `src/guia1/arreglos/Ej23.java`
+- Declarar `int[] nums` con valores de ejemplo y sumar todos los elementos.
+- Con el arreglo de ejemplo (`5, 12, 7, 3, 20, 8, 15, 1, 9, 4`) el resultado es `84`.
+
+**Ej29 · Recorrer una cadena** — `src/guia1/arreglos/Ej29.java` *(Avanzado)*
+- Recorrer un `String` e imprimir un carácter por línea.
+- Usar `texto.length()` y `texto.charAt(i)` con un `for` clásico (no `for-each`).
+
+### 3.5 Cómo se comprueba la Guía 1 (los tres)
 
 ```bash
 bash scripts/compilar.sh
@@ -565,8 +628,8 @@ Guion sugerido:
 | Momento | Daniel | Jeronimo | Juan Pablo |
 |---|---|---|---|
 | **1. Base** | Implementa `UsuarioDAO` y `PlatoDAO` (son la base de todos) y los sube primero | Implementa `Ej3IMC` y `Ej4Arreglo` | Redacta `docs/DISENO.md` y `docs/EV01_JOOPTIONPANE.md` |
-| **2. Paralelo** | `insertarDatosIniciales()` + ejercicios 1–10 | `LoginVista` + `LoginControlador` + `cerrarSesion()` | `MenuVista` + `PlatoVista` |
-| **3. Paralelo** | Ejercicios 6–10 (los de validación) | Ejercicios 11–21 | `PlatoControlador` + ejercicios 22–29 |
+| **2. Paralelo** | `insertarDatosIniciales()` + ejercicios 2, 8, 9, 17, 19 | `LoginVista` + `LoginControlador` + `cerrarSesion()` + ejercicios 3, 4, 11, 14, 16 | `MenuVista` + `PlatoVista` + ejercicios 1, 5, 6, 12, 13 |
+| **3. Paralelo** | Ejercicios 20, 25, 27, 28 | Ejercicios 10, 21, 22, 24, 26 | `PlatoControlador` + ejercicios 7, 15, 18, 23, 29 |
 | **4. Integración** | Verifica la EV02 (capturas) | Prueba el flujo login → menú → cerrar sesión | Prueba el CRUD completo |
 | **5. Cierre** | Checklist + PR final | Checklist + PR final | README + checklist + PR final |
 

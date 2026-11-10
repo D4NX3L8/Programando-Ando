@@ -8,7 +8,7 @@ package guia1.condicionales;
  * Pide la edad. Si es >= 18: 'Puede ingresar'. Si es menor: 'Acceso denegado'.
  *  * Si es negativa: 'Edad invalida'. Valida lo negativo ANTES que lo demas.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Jeronimo Henao
  */
 public class Ej03 {
 

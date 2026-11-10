@@ -7,7 +7,7 @@ package guia1.ciclos;
  * Enunciado:
  * Muestra los numeros del 50 al 1 usando un ciclo for (decremento).
  *
- * Autor: Jeronimo Henao
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej12 {
 

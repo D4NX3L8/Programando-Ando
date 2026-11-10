@@ -8,7 +8,7 @@ package guia1.condicionales;
  * Pide un numero entero e imprime si es Positivo, Negativo o Cero.
  *  * Usa if / else if / else.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej01 {
 

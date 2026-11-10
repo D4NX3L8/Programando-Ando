@@ -9,7 +9,7 @@ package guia1.condicionales;
  *  * Clasifica: <18.5 Bajo peso | 18.5-24.9 Normal | 25-29.9 Sobrepeso | >=30 Obesidad.
  *  * Valida que peso y altura sean mayores que cero.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Jeronimo Henao
  */
 public class Ej10 {
 

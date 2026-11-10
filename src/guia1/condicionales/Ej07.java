@@ -8,7 +8,7 @@ package guia1.condicionales;
  * Pide tres numeros e imprime cual es el mayor.
  *  * Extra: si hay empate entre dos o entre los tres, indicarlo.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej07 {
 

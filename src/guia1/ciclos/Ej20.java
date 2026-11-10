@@ -7,7 +7,7 @@ package guia1.ciclos;
  * Enunciado:
  * Muestra los numeros del 1 al 100 divisibles entre 3 Y entre 5 a la vez.
  *
- * Autor: Jeronimo Henao
+ * Autor: Daniel Ochoa Taborda
  */
 public class Ej20 {
 

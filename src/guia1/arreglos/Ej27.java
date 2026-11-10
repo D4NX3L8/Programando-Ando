@@ -7,7 +7,7 @@ package guia1.arreglos;
  * Enunciado:
  * Imprime un cuadrado de 6x6 asteriscos usando ciclos for anidados.
  *
- * Autor: Juan Pablo Arismendy
+ * Autor: Daniel Ochoa Taborda
  */
 public class Ej27 {
 

@@ -8,7 +8,7 @@ package guia1.condicionales;
  * Pide un anio y determina si es bisiesto.
  *  * Regla: divisible entre 4, no entre 100, excepto si es divisible entre 400.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej05 {
 

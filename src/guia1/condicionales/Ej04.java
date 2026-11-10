@@ -8,7 +8,7 @@ package guia1.condicionales;
  * Pide dos numeros y un operador (+ - * /). Resuelve con switch.
  *  * Valida la division entre cero y los operadores desconocidos.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Jeronimo Henao
  */
 public class Ej04 {
 

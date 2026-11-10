@@ -8,7 +8,7 @@ package guia1.ciclos;
  * Muestra las tablas de multiplicar del 1 al 10 con ciclos for anidados.
  *  * Separa cada tabla con un encabezado.
  *
- * Autor: Jeronimo Henao
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej18 {
 

@@ -8,7 +8,7 @@ package guia1.ciclos;
  * Calcula la suma de los numeros del 1 al 100 con un ciclo for.
  *  * Resultado esperado: 5050.
  *
- * Autor: Jeronimo Henao
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej15 {
 

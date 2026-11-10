@@ -7,7 +7,7 @@ package guia1.ciclos;
  * Enunciado:
  * Muestra la tabla de multiplicar del 7 (del 1 al 10) con un ciclo for.
  *
- * Autor: Jeronimo Henao
+ * Autor: Daniel Ochoa Taborda
  */
 public class Ej17 {
 

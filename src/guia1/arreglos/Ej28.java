@@ -8,7 +8,7 @@ package guia1.arreglos;
  * Muestra los primeros 20 numeros y su cubo (n^3) usando un ciclo for.
  *  * Recuerda: en Java la potencia NO es ^ (ese operador es XOR).
  *
- * Autor: Juan Pablo Arismendy
+ * Autor: Daniel Ochoa Taborda
  */
 public class Ej28 {
 

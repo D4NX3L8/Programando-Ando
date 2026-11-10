@@ -7,7 +7,7 @@ package guia1.ciclos;
  * Enunciado:
  * Imprime todos los numeros pares del 1 al 100 usando un ciclo for.
  *
- * Autor: Jeronimo Henao
+ * Autor: Juan Pablo Arismendy
  */
 public class Ej13 {
 

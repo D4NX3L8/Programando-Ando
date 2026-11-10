@@ -7,7 +7,7 @@ package guia1.arreglos;
  * Enunciado:
  * Encuentra el numero mayor dentro de un arreglo int[] usando un ciclo for.
  *
- * Autor: Juan Pablo Arismendy
+ * Autor: Jeronimo Henao
  */
 public class Ej24 {
 
