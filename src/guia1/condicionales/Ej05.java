@@ -1,5 +1,7 @@
 package guia1.condicionales;
 
+import java.util.Scanner;
+
 /**
  * Guia 1 - Ejercicio 05 (Medio)
  * Anio bisiesto
@@ -8,14 +10,20 @@ package guia1.condicionales;
  * Pide un anio y determina si es bisiesto.
  *  * Regla: divisible entre 4, no entre 100, excepto si es divisible entre 400.
  *
- * Autor: Juan Pablo Arismendy
+ * Autor: Daniel Ochoa
  */
 public class Ej05 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej05] pendiente de implementar.");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ingrese un anio: ");
+        int anio = sc.nextInt();
+
+        if ((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0) {
+            System.out.println(anio + " es bisiesto");
+        } else {
+            System.out.println(anio + " no es bisiesto");
+        }
     }
 }

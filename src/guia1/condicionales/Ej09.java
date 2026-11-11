@@ -1,5 +1,7 @@
 package guia1.condicionales;
 
+import java.util.Scanner;
+
 /**
  * Guia 1 - Ejercicio 09 (Basico)
  * Login con equals
@@ -9,14 +11,23 @@ package guia1.condicionales;
  *  * Si coinciden: 'Bienvenido'. Si no: 'Credenciales incorrectas'.
  *  * Compara los String con equals(), nunca con ==.
  *
- * Autor: Daniel Ochoa Taborda
+ * Autor: Daniel Ochoa
  */
 public class Ej09 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej09] pendiente de implementar.");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Usuario: ");
+        String usuario = sc.next();
+
+        System.out.print("Contrasena: ");
+        String clave = sc.next();
+
+        if (usuario.equals("admin") && clave.equals("1234")) {
+            System.out.println("Bienvenido");
+        } else {
+            System.out.println("Credenciales incorrectas");
+        }
     }
 }
