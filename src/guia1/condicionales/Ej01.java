@@ -1,21 +1,25 @@
 package guia1.condicionales;
 
+import java.util.Scanner;
+
 /**
- * Guia 1 - Ejercicio 01 (Basico)
- * Positivo, negativo o cero
- *
- * Enunciado:
- * Pide un numero entero e imprime si es Positivo, Negativo o Cero.
- *  * Usa if / else if / else.
- *
- * Autor: Juan Pablo Arismendy
+ * Ej01 - Positivo, negativo o cero.
+ * Pide un numero entero y dice si es positivo, negativo o cero.
  */
 public class Ej01 {
 
-    public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej01] pendiente de implementar.");
+    public static void ejecutar(Scanner sc) {
+        System.out.println("=== Ej01: Positivo, negativo o cero ===");
+        System.out.print("Ingrese un numero entero: ");
+        int n = sc.nextInt();
+
+        if (n > 0) {
+            System.out.println("Positivo");
+        } else if (n < 0) {
+            System.out.println("Negativo");
+        } else {
+            System.out.println("Cero");
+        }
+        // No se cierra el Scanner: Guia1Main lo reutiliza.
     }
 }

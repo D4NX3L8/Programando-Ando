@@ -62,7 +62,7 @@ public class Guia1Main {
 
             switch (opcion) {
                 case 1:
-                    Ej01.main(null);
+                    Ej01.ejecutar(sc);
                     break;
                 case 2:
                     Ej02.main(null);
@@ -74,13 +74,13 @@ public class Guia1Main {
                     Ej04.main(null);
                     break;
                 case 5:
-                    Ej05.main(null);
+                    Ej05.ejecutar(sc);
                     break;
                 case 6:
-                    Ej06.main(null);
+                    Ej06.ejecutar(sc);
                     break;
                 case 7:
-                    Ej07.main(null);
+                    Ej07.ejecutar(sc);
                     break;
                 case 8:
                     Ej08.main(null);
@@ -95,16 +95,16 @@ public class Guia1Main {
                     Ej11.main(null);
                     break;
                 case 12:
-                    Ej12.main(null);
+                    Ej12.ejecutar(sc);
                     break;
                 case 13:
-                    Ej13.main(null);
+                    Ej13.ejecutar(sc);
                     break;
                 case 14:
                     Ej14.main(null);
                     break;
                 case 15:
-                    Ej15.main(null);
+                    Ej15.ejecutar(sc);
                     break;
                 case 16:
                     Ej16.main(null);
@@ -113,7 +113,7 @@ public class Guia1Main {
                     Ej17.main(null);
                     break;
                 case 18:
-                    Ej18.main(null);
+                    Ej18.ejecutar(sc);
                     break;
                 case 19:
                     Ej19.main(null);
@@ -128,7 +128,7 @@ public class Guia1Main {
                     Ej22.main(null);
                     break;
                 case 23:
-                    Ej23.main(null);
+                    Ej23.ejecutar(sc);
                     break;
                 case 24:
                     Ej24.main(null);
@@ -146,7 +146,7 @@ public class Guia1Main {
                     Ej28.main(null);
                     break;
                 case 29:
-                    Ej29.main(null);
+                    Ej29.ejecutar(sc);
                     break;
                 case 0:
                     System.out.println("Saliendo de la Guia 1.");
