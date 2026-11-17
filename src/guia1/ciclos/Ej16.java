@@ -13,9 +13,16 @@ package guia1.ciclos;
 public class Ej16 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej16] pendiente de implementar.");
+
+        int suma = 0;
+
+        for (int i = 1; i <= 50; i++) {
+            if (i % 2 != 0) {
+                suma += i;
+            }
+        }
+
+        System.out.println("La suma de los impares es: " + suma);
+
     }
 }

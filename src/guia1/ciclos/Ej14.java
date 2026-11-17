@@ -12,9 +12,13 @@ package guia1.ciclos;
 public class Ej14 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej14] pendiente de implementar.");
+
+        int numero = 1;
+
+        while (numero <= 100) {
+            System.out.println(numero);
+            numero += 2;
+        }
+
     }
 }
