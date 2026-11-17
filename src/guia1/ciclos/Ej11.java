@@ -9,12 +9,14 @@ package guia1.ciclos;
  *
  * Autor: Jeronimo Henao
  */
+
 public class Ej11 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej11] pendiente de implementar.");
+
+        for (int i = 1; i <= 50; i++) {
+            System.out.println(i);
+        }
+
     }
 }

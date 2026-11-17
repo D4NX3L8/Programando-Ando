@@ -5,12 +5,6 @@ import java.util.Scanner;
 /**
  * Guia 1 - Ejercicio 04 (Medio)
  * Calculadora con switch
- *
- * Enunciado:
- * Pide dos numeros y un operador (+ - * /). Resuelve con switch.
- *  * Valida la division entre cero y los operadores desconocidos.
- *
- * Autor: Daniel Ochoa
  */
 public class Ej04 {
 
@@ -18,33 +12,33 @@ public class Ej04 {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Ingrese el primer numero: ");
-        double num1 = sc.nextDouble();
+        double numero1 = sc.nextDouble();
 
         System.out.print("Ingrese el segundo numero: ");
-        double num2 = sc.nextDouble();
+        double numero2 = sc.nextDouble();
 
-        System.out.print("Ingrese el operador (+, -, *, /): ");
-        char op = sc.next().charAt(0);
+        System.out.print("Ingrese el operador (+ - * /): ");
+        String operador = sc.next();
 
-        switch (op) {
-            case '+':
-                System.out.println("Resultado: " + (num1 + num2));
+        switch (operador) {
+            case "+":
+                System.out.println("Resultado: " + (numero1 + numero2));
                 break;
-            case '-':
-                System.out.println("Resultado: " + (num1 - num2));
+            case "-":
+                System.out.println("Resultado: " + (numero1 - numero2));
                 break;
-            case '*':
-                System.out.println("Resultado: " + (num1 * num2));
+            case "*":
+                System.out.println("Resultado: " + (numero1 * numero2));
                 break;
-            case '/':
-                if (num2 == 0) {
-                    System.out.println("No se puede dividir entre cero");
+            case "/":
+                if (numero2 == 0) {
+                    System.out.println("Error: Division entre cero");
                 } else {
-                    System.out.println("Resultado: " + (num1 / num2));
+                    System.out.println("Resultado: " + (numero1 / numero2));
                 }
                 break;
             default:
-                System.out.println("Operador invalido");
+                System.out.println("Error: Operador desconocido");
                 break;
         }
     }

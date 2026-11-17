@@ -11,10 +11,24 @@ package guia1.arreglos;
  */
 public class Ej26 {
 
-    public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej26] pendiente de implementar.");
+     public static void main(String[] args) {
+
+        int[] nums = {5, 8, 12, 3, 7, 15, 9, 2, 10, 4};
+
+        int buscado = 7;
+        int contador = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == buscado) {
+                contador++;
+            }
+        }
+
+        if (contador == 1) {
+            System.out.println(buscado + " aparece " + contador + " vez");
+        } else {
+            System.out.println(buscado + " aparece " + contador + " veces");
+        }
+
     }
 }

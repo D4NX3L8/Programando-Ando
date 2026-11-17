@@ -5,29 +5,21 @@ import java.util.Scanner;
 /**
  * Guia 1 - Ejercicio 03 (Basico)
  * Control de acceso por edad
- *
- * Enunciado:
- * Pide la edad. Si es >= 18: 'Puede ingresar'. Si es menor: 'Acceso denegado'.
- *  * Si es negativa: 'Edad invalida'. Valida lo negativo ANTES que lo demas.
- *
- * Autor: Daniel Ochoa
  */
 public class Ej03 {
 
     public static void main(String[] args) {
-      System.out.print("Ingresa tu edad: ");
+        Scanner sc = new Scanner(System.in);
 
-        Scanner num = new Scanner(System.in);
-        int age = num.nextInt();
+        System.out.print("Ingrese su edad: ");
+        int edad = sc.nextInt();
 
-        if (age < 0) {
-            System.out.println("El valor ingresado no es valido");
-        }
-        else if (age  < 18) {
-            System.out.println("Acceso denegado");
-        }
-        else {
+        if (edad < 0) {
+            System.out.println("Edad invalida");
+        } else if (edad >= 18) {
             System.out.println("Puede ingresar");
+        } else {
+            System.out.println("Acceso denegado");
         }
     }
 }
