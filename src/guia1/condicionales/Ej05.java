@@ -8,17 +8,21 @@ import java.util.Scanner;
  */
 public class Ej05 {
 
+    public static void main(String[] args) {
+        ejecutar(new Scanner(System.in));
+    }
+
     public static void ejecutar(Scanner sc) {
         System.out.println("=== Ej05: Anio bisiesto ===");
         System.out.print("Ingrese un anio: ");
-        int a = sc.nextInt();
+        int anio = sc.nextInt();
 
-        boolean bisiesto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
+        boolean bisiesto = (anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0;
 
         if (bisiesto) {
-            System.out.println(a + " es bisiesto");
+            System.out.println(anio + " es bisiesto");
         } else {
-            System.out.println(a + " no es bisiesto");
+            System.out.println(anio + " no es bisiesto");
         }
     }
 }

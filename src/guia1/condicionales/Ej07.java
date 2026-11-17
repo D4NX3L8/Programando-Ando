@@ -8,6 +8,10 @@ import java.util.Scanner;
  */
 public class Ej07 {
 
+    public static void main(String[] args) {
+        ejecutar(new Scanner(System.in));
+    }
+
     public static void ejecutar(Scanner sc) {
         System.out.println("=== Ej07: Mayor de tres numeros ===");
         System.out.print("Ingrese el primer numero: ");
@@ -19,7 +23,6 @@ public class Ej07 {
 
         int mayor = Math.max(a, Math.max(b, c));
 
-        // Cuantos numeros son iguales al mayor
         int iguales = 0;
         if (a == mayor) {
             iguales++;

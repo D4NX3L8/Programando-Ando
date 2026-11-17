@@ -8,6 +8,10 @@ import java.util.Scanner;
  */
 public class Ej01 {
 
+    public static void main(String[] args) {
+        ejecutar(new Scanner(System.in));
+    }
+
     public static void ejecutar(Scanner sc) {
         System.out.println("=== Ej01: Positivo, negativo o cero ===");
         System.out.print("Ingrese un numero entero: ");
@@ -20,6 +24,5 @@ public class Ej01 {
         } else {
             System.out.println("Cero");
         }
-        // No se cierra el Scanner: Guia1Main lo reutiliza.
     }
 }

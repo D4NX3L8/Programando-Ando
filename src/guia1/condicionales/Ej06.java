@@ -8,12 +8,15 @@ import java.util.Scanner;
  */
 public class Ej06 {
 
+    public static void main(String[] args) {
+        ejecutar(new Scanner(System.in));
+    }
+
     public static void ejecutar(Scanner sc) {
         System.out.println("=== Ej06: Clasificacion de notas ===");
         System.out.print("Ingrese la nota (0 a 100): ");
         int nota = sc.nextInt();
 
-        // Validar primero el rango y no seguir si es invalida
         if (nota < 0 || nota > 100) {
             System.out.println("Nota invalida");
             return;
