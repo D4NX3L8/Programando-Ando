@@ -9,12 +9,17 @@ package guia1.arreglos;
  *
  * Autor: Jeronimo Henao
  */
+
+
 public class Ej22 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej22] pendiente de implementar.");
+
+        int[] nums = {5, 8, 12, 3, 7, 15, 9, 2, 10, 4};
+
+        for (int i = 0; i < nums.length; i++) {
+            System.out.println("nums[" + i + "] = " + nums[i]);
+        }
+
     }
 }

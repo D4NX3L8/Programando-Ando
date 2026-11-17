@@ -12,10 +12,20 @@ package guia1.ciclos;
  */
 public class Ej21 {
 
-    public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej21] pendiente de implementar.");
+   public static void main(String[] args) {
+
+        int n = 10;
+        long factorial = 1;
+
+        if (n < 0) {
+            System.out.println("No existe factorial para numeros negativos");
+        } else {
+            for (int i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+
+            System.out.println("El factorial de " + n + " es: " + factorial);
+        }
+
     }
 }
