@@ -1,21 +1,20 @@
 package guia1.arreglos;
 
+import java.util.Scanner;
+
 /**
- * Guia 1 - Ejercicio 29 (Avanzado)
- * Recorrer una cadena
- *
- * Enunciado:
- * Recorre una cadena de texto e imprime cada caracter en una linea usando un ciclo for.
- *  * Usa length() y charAt(i).
- *
- * Autor: Juan Pablo Arismendy
+ * Ej29 - Recorrer una cadena e imprimir un caracter por linea.
+ * Se usa for clasico con length() y charAt(i), no for-each.
  */
 public class Ej29 {
 
-    public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej29] pendiente de implementar.");
+    public static void ejecutar(Scanner sc) {
+        System.out.println("=== Ej29: Recorrer una cadena ===");
+        System.out.print("Ingrese una palabra (sin espacios): ");
+        String texto = sc.next();
+
+        for (int i = 0; i < texto.length(); i++) {
+            System.out.println(texto.charAt(i));
+        }
     }
 }

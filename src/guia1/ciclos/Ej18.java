@@ -1,21 +1,19 @@
 package guia1.ciclos;
 
+import java.util.Scanner;
+
 /**
- * Guia 1 - Ejercicio 18 (Medio)
- * Tablas del 1 al 10
- *
- * Enunciado:
- * Muestra las tablas de multiplicar del 1 al 10 con ciclos for anidados.
- *  * Separa cada tabla con un encabezado.
- *
- * Autor: Juan Pablo Arismendy
+ * Ej18 - Tablas de multiplicar del 1 al 10 (ciclos anidados).
  */
 public class Ej18 {
 
-    public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej18] pendiente de implementar.");
+    public static void ejecutar(Scanner sc) {
+        System.out.println("=== Ej18: Tablas del 1 al 10 ===");
+        for (int tabla = 1; tabla <= 10; tabla++) {
+            System.out.println("--- Tabla del " + tabla + " ---");
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(tabla + " x " + i + " = " + (tabla * i));
+            }
+        }
     }
 }

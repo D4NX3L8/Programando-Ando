@@ -1,21 +1,18 @@
 package guia1.ciclos;
 
+import java.util.Scanner;
+
 /**
- * Guia 1 - Ejercicio 15 (Basico)
- * Suma del 1 al 100
- *
- * Enunciado:
- * Calcula la suma de los numeros del 1 al 100 con un ciclo for.
- *  * Resultado esperado: 5050.
- *
- * Autor: Juan Pablo Arismendy
+ * Ej15 - Suma de los numeros del 1 al 100 (patron acumulador).
  */
 public class Ej15 {
 
-    public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej15] pendiente de implementar.");
+    public static void ejecutar(Scanner sc) {
+        System.out.println("=== Ej15: Suma del 1 al 100 ===");
+        int suma = 0; // acumulador fuera del ciclo
+        for (int i = 1; i <= 100; i++) {
+            suma += i;
+        }
+        System.out.println("La suma es: " + suma); // 5050
     }
 }

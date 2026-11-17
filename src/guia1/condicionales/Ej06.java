@@ -1,22 +1,37 @@
 package guia1.condicionales;
 
+import java.util.Scanner;
+
 /**
- * Guia 1 - Ejercicio 06 (Medio)
- * Clasificacion de notas
- *
- * Enunciado:
- * Pide una nota entre 0 y 100 y clasifica:
- *  * 90-100 Excelente | 80-89 Bueno | 70-79 Aceptable | 60-69 Insuficiente | <60 Reprobado.
- *  * Valida que la nota este en el rango 0-100.
- *
- * Autor: Juan Pablo Arismendy
+ * Ej06 - Clasificacion de notas.
+ * Primero se valida el rango 0-100 y despues se clasifica de mayor a menor.
  */
 public class Ej06 {
 
-    public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej06] pendiente de implementar.");
+    public static void ejecutar(Scanner sc) {
+        System.out.println("=== Ej06: Clasificacion de notas ===");
+        System.out.print("Ingrese la nota (0 a 100): ");
+        int nota = sc.nextInt();
+
+        // Validar primero el rango y no seguir si es invalida
+        if (nota < 0 || nota > 100) {
+            System.out.println("Nota invalida");
+            return;
+        }
+
+        String clasificacion;
+        if (nota >= 90) {
+            clasificacion = "Excelente";
+        } else if (nota >= 80) {
+            clasificacion = "Bueno";
+        } else if (nota >= 70) {
+            clasificacion = "Aceptable";
+        } else if (nota >= 60) {
+            clasificacion = "Insuficiente";
+        } else {
+            clasificacion = "Reprobado";
+        }
+
+        System.out.println("Nota " + nota + ": " + clasificacion);
     }
 }
