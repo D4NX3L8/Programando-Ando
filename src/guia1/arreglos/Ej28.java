@@ -13,9 +13,9 @@ package guia1.arreglos;
 public class Ej28 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej28] pendiente de implementar.");
+        for (int n = 1; n <= 20; n++) {
+            int cubo = n * n * n;
+            System.out.println(n + " -> " + cubo);
+        }
     }
 }

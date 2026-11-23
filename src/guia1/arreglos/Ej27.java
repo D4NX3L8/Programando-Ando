@@ -12,9 +12,11 @@ package guia1.arreglos;
 public class Ej27 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej27] pendiente de implementar.");
+        for (int fila = 0; fila < 6; fila++) {
+            for (int columna = 0; columna < 6; columna++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
     }
 }

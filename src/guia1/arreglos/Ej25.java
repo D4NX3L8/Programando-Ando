@@ -12,9 +12,15 @@ package guia1.arreglos;
 public class Ej25 {
 
     public static void main(String[] args) {
-        // TODO: implementar el ejercicio.
-        // Regla del proyecto: NO cerrar el Scanner de System.in
-        // (Guia1Main lo reutiliza para volver al menu).
-        System.out.println("[Ej25] pendiente de implementar.");
+        int[] nums = {5, 12, 7, 3, 20, 8, 15, 1, 9, 4};
+        int menor = nums[0];
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] < menor) {
+                menor = nums[i];
+            }
+        }
+
+        System.out.println(menor);
     }
 }
