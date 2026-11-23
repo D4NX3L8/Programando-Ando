@@ -5,8 +5,6 @@ package guia2.modelo;
  * Entidad de negocio del proyecto: un plato del restaurante.
  *
  * Atributos: id, nombre, categoria, precio, disponible (minimo 4, guia 3.4).
- *
- * TODO (Daniel): verificar getters/setters y las validaciones del modelo.
  */
 public class Plato {
 
@@ -20,17 +18,17 @@ public class Plato {
     }
 
     public Plato(String nombre, String categoria, double precio, boolean disponible) {
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.precio = precio;
+        setNombre(nombre);
+        setCategoria(categoria);
+        setPrecio(precio);
         this.disponible = disponible;
     }
 
     public Plato(int id, String nombre, String categoria, double precio, boolean disponible) {
         this.id = id;
-        this.nombre = nombre;
-        this.categoria = categoria;
-        this.precio = precio;
+        setNombre(nombre);
+        setCategoria(categoria);
+        setPrecio(precio);
         this.disponible = disponible;
     }
 
@@ -47,7 +45,10 @@ public class Plato {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        if (nombre == null || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre del plato no puede estar vacio.");
+        }
+        this.nombre = nombre.trim();
     }
 
     public String getCategoria() {
@@ -55,7 +56,10 @@ public class Plato {
     }
 
     public void setCategoria(String categoria) {
-        this.categoria = categoria;
+        if (categoria == null || categoria.trim().isEmpty()) {
+            throw new IllegalArgumentException("La categoria no puede estar vacia.");
+        }
+        this.categoria = categoria.trim();
     }
 
     public double getPrecio() {
@@ -63,6 +67,9 @@ public class Plato {
     }
 
     public void setPrecio(double precio) {
+        if (precio < 0) {
+            throw new IllegalArgumentException("El precio no puede ser negativo.");
+        }
         this.precio = precio;
     }
 

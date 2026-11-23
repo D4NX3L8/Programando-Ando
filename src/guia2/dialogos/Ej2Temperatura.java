@@ -17,7 +17,21 @@ import javax.swing.JOptionPane;
 public class Ej2Temperatura {
 
     public static void main(String[] args) {
-        // TODO: implementar con JOptionPane + try/catch.
-        JOptionPane.showMessageDialog(null, "[Ej2Temperatura] pendiente de implementar.");
+        String temperaturaTexto = JOptionPane.showInputDialog(null, "Ingrese la temperatura en Celsius:");
+        if (temperaturaTexto == null) {
+            return;
+        }
+
+        try {
+            double celsius = Double.parseDouble(temperaturaTexto);
+            double fahrenheit = (celsius * 9.0 / 5) + 32;
+            JOptionPane.showMessageDialog(null,
+                    String.format("Fahrenheit: %,.2f", fahrenheit));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Debe ingresar una temperatura numerica valida.",
+                    "Entrada invalida",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }
 }

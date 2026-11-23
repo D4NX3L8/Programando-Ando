@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import guia2.dao.PlatoDAO;
+import guia2.dao.UsuarioDAO;
+import guia2.modelo.Plato;
+
 /**
  * Guia 2 - Actividad GA2-AA1-EV02.
  * Crea las tablas del sistema si no existen.
@@ -12,7 +16,6 @@ import java.sql.Statement;
  *   usuarios(id, username, password)
  *   platos(id, nombre, categoria, precio, disponible)
  *
- * TODO (Daniel): implementar insertarDatosIniciales() en la Fase 3 de la guia.
  */
 public class InicializarDB {
 
@@ -57,7 +60,13 @@ public class InicializarDB {
      * Debe usar los DAO (UsuarioDAO y PlatoDAO) o PreparedStatement.
      */
     public static void insertarDatosIniciales() {
-        // TODO (Daniel): insertar usuarios y platos de prueba sin duplicar
-        // registros si se ejecuta varias veces.
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        usuarioDAO.insertarSiNoExiste("admin", "admin123");
+        usuarioDAO.insertarSiNoExiste("empleado", "emp456");
+
+        PlatoDAO platoDAO = new PlatoDAO();
+        platoDAO.insertarSiNoExiste(new Plato("Bandeja paisa", "Fuerte", 28000, true));
+        platoDAO.insertarSiNoExiste(new Plato("Ajiaco santafeno", "Fuerte", 25000, true));
+        platoDAO.insertarSiNoExiste(new Plato("Limonada natural", "Bebida", 6000, true));
     }
 }

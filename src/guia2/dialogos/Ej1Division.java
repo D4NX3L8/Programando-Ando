@@ -17,7 +17,31 @@ import javax.swing.JOptionPane;
 public class Ej1Division {
 
     public static void main(String[] args) {
-        // TODO: implementar con JOptionPane + try/catch.
-        JOptionPane.showMessageDialog(null, "[Ej1Division] pendiente de implementar.");
+        String dividendoTexto = JOptionPane.showInputDialog(null, "Ingrese el dividendo:");
+        if (dividendoTexto == null) {
+            return;
+        }
+
+        String divisorTexto = JOptionPane.showInputDialog(null, "Ingrese el divisor:");
+        if (divisorTexto == null) {
+            return;
+        }
+
+        try {
+            int dividendo = Integer.parseInt(dividendoTexto);
+            int divisor = Integer.parseInt(divisorTexto);
+            int resultado = dividendo / divisor;
+            JOptionPane.showMessageDialog(null, "Resultado: " + resultado);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Debe ingresar numeros enteros validos.",
+                    "Entrada invalida",
+                    JOptionPane.WARNING_MESSAGE);
+        } catch (ArithmeticException e) {
+            JOptionPane.showMessageDialog(null,
+                    "No se puede dividir entre cero.",
+                    "Error aritmetico",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

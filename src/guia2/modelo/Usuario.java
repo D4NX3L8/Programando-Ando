@@ -3,9 +3,6 @@ package guia2.modelo;
 /**
  * Guia 2 - Modulo A (POO).
  * Entidad obligatoria del sistema de autenticacion.
- *
- * TODO (Daniel): verificar getters/setters y agregar las validaciones que
- * consideren necesarias (por ejemplo, username no vacio).
  */
 public class Usuario {
 
@@ -17,14 +14,14 @@ public class Usuario {
     }
 
     public Usuario(String username, String password) {
-        this.username = username;
-        this.password = password;
+        setUsername(username);
+        setPassword(password);
     }
 
     public Usuario(int id, String username, String password) {
         this.id = id;
-        this.username = username;
-        this.password = password;
+        setUsername(username);
+        setPassword(password);
     }
 
     public int getId() {
@@ -40,7 +37,10 @@ public class Usuario {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        if (username == null || username.trim().isEmpty()) {
+            throw new IllegalArgumentException("El nombre de usuario no puede estar vacio.");
+        }
+        this.username = username.trim();
     }
 
     public String getPassword() {
@@ -48,6 +48,9 @@ public class Usuario {
     }
 
     public void setPassword(String password) {
+        if (password == null || password.trim().isEmpty()) {
+            throw new IllegalArgumentException("La contrasena no puede estar vacia.");
+        }
         this.password = password;
     }
 

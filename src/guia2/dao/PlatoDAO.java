@@ -16,8 +16,6 @@ import guia2.modelo.Plato;
  *
  * Regla del proyecto: SIEMPRE PreparedStatement, nunca concatenar SQL
  * (evita inyeccion SQL y es un criterio de la rubrica).
- *
- * TODO (Daniel): implementar todos los metodos.
  */
 public class PlatoDAO {
 
@@ -25,15 +23,38 @@ public class PlatoDAO {
      * INSERT INTO platos (nombre, categoria, precio, disponible) VALUES (?, ?, ?, ?)
      */
     public void insertar(Plato plato) {
-        // TODO (Daniel)
+        String sql = "INSERT INTO platos (nombre, categoria, precio, disponible) VALUES (?, ?, ?, ?)";
+
+        try (Connection conn = ConexionDB.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, plato.getNombre());
+            ps.setString(2, plato.getCategoria());
+            ps.setDouble(3, plato.getPrecio());
+            ps.setBoolean(4, plato.isDisponible());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Error al insertar el plato: " + e.getMessage());
+        }
     }
 
     /**
      * SELECT * FROM platos ORDER BY id
      */
     public List<Plato> listar() {
-        // TODO (Daniel)
-        return new ArrayList<>();
+        String sql = "SELECT * FROM platos ORDER BY id";
+        List<Plato> platos = new ArrayList<>();
+
+        try (Connection conn = ConexionDB.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                platos.add(mapearPlato(rs));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al listar los platos: " + e.getMessage());
+        }
+
+        return platos;
     }
 
     /**
@@ -41,8 +62,18 @@ public class PlatoDAO {
      * @return el plato o null si no existe.
      */
     public Plato buscarPorId(int id) {
-        // TODO (Daniel)
-        return null;
+        String sql = "SELECT * FROM platos WHERE id = ?";
+
+        try (Connection conn = ConexionDB.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next() ? mapearPlato(rs) : null;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al buscar el plato: " + e.getMessage());
+            return null;
+        }
     }
 
     /**
@@ -50,8 +81,20 @@ public class PlatoDAO {
      * @return true si se actualizo al menos una fila.
      */
     public boolean actualizar(Plato plato) {
-        // TODO (Daniel)
-        return false;
+        String sql = "UPDATE platos SET nombre = ?, categoria = ?, precio = ?, disponible = ? WHERE id = ?";
+
+        try (Connection conn = ConexionDB.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, plato.getNombre());
+            ps.setString(2, plato.getCategoria());
+            ps.setDouble(3, plato.getPrecio());
+            ps.setBoolean(4, plato.isDisponible());
+            ps.setInt(5, plato.getId());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al actualizar el plato: " + e.getMessage());
+            return false;
+        }
     }
 
     /**
@@ -59,22 +102,51 @@ public class PlatoDAO {
      * @return true si se elimino al menos una fila.
      */
     public boolean eliminar(int id) {
-        // TODO (Daniel)
-        return false;
+        String sql = "DELETE FROM platos WHERE id = ?";
+
+        try (Connection conn = ConexionDB.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al eliminar el plato: " + e.getMessage());
+            return false;
+        }
     }
 
     /**
      * SELECT 1 FROM platos WHERE nombre = ? (para no duplicar los datos iniciales)
      */
     public boolean existePorNombre(String nombre) {
-        // TODO (Daniel)
-        return false;
+        String sql = "SELECT 1 FROM platos WHERE nombre = ?";
+
+        try (Connection conn = ConexionDB.getConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, nombre);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al comprobar el plato: " + e.getMessage());
+            return false;
+        }
     }
 
     /**
      * Inserta el plato solo si no existe un plato con ese nombre.
      */
     public void insertarSiNoExiste(Plato plato) {
-        // TODO (Daniel)
+        if (!existePorNombre(plato.getNombre())) {
+            insertar(plato);
+        }
+    }
+
+    private Plato mapearPlato(ResultSet rs) throws SQLException {
+        return new Plato(
+                rs.getInt("id"),
+                rs.getString("nombre"),
+                rs.getString("categoria"),
+                rs.getDouble("precio"),
+                rs.getInt("disponible") == 1);
     }
 }
