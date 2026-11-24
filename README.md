@@ -76,6 +76,12 @@ Sistema del restaurante (requiere entorno gráfico para los `JOptionPane`):
 java -cp "out:libs/*" guia2.Guia2App
 ```
 
+## Simulacros de sustentación
+
+Abre [examenes/index.html](examenes/index.html) en un navegador para practicar los nueve
+exámenes (tres por integrante). Cada examen muestra el puntaje y la explicación de las
+respuestas al finalizar; no envía ni guarda resultados.
+
 ## Base de datos
 
 La Guía 2 usa **SQLite**. El archivo `mibasededatos.db` se crea solo en la raíz la primera

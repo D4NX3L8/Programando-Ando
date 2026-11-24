@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Nueve simulacros de sustentación para Programando Ando.">
+  <title>Simulacros de sustentación | Programando Ando</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="exams.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Inicio de los simulacros">
+      <span class="brand-mark">PA</span>
+      <span>Programando <strong>Ando</strong></span>
+    </a>
+    <span class="header-note">Preparación de sustentación · Java</span>
+  </header>
+
+  <main class="page-shell">
+    <section id="home-screen" class="screen">
+      <div class="hero">
+        <p class="eyebrow">GUÍAS 1 Y 2 · EVALUACIÓN ORAL</p>
+        <h1>Practica antes de sustentar.</h1>
+        <p class="hero-copy">
+          Elige un integrante y responde tres simulacros completos sobre lógica,
+          interfaz gráfica, SQLite y arquitectura del proyecto. Al terminar verás
+          tu puntaje y la explicación de cada respuesta.
+        </p>
+        <div class="hero-stats" aria-label="Resumen de los simulacros">
+          <span><strong>3</strong> integrantes</span>
+          <span><strong>9</strong> exámenes</span>
+          <span><strong>72</strong> preguntas</span>
+        </div>
+      </div>
+
+      <section aria-labelledby="members-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">PRIMER PASO</p>
+            <h2 id="members-title">¿A quién vas a preparar?</h2>
+          </div>
+          <p>Los exámenes se enfocan en su reparto, e incluyen preguntas de integración.</p>
+        </div>
+        <div id="member-list" class="member-grid"></div>
+      </section>
+
+      <section id="exam-picker" class="exam-picker" hidden aria-labelledby="exams-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">SEGUNDO PASO</p>
+            <h2 id="exams-title">Escoge un simulacro</h2>
+          </div>
+          <button id="back-to-members" class="text-button" type="button">Cambiar integrante</button>
+        </div>
+        <div id="exam-list" class="exam-grid"></div>
+      </section>
+    </section>
+
+    <section id="quiz-screen" class="screen" hidden aria-live="polite"></section>
+    <section id="result-screen" class="screen" hidden aria-live="polite"></section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Simulacros de práctica · Sin registro ni envío de respuestas</span>
+    <span>Responde y sustenta el porqué, no solo la opción.</span>
+  </footer>
+</body>
+</html>
