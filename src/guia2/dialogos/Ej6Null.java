@@ -18,7 +18,29 @@ import javax.swing.JOptionPane;
 public class Ej6Null {
 
     public static void main(String[] args) {
-        // TODO: implementar con JOptionPane + try/catch.
-        JOptionPane.showMessageDialog(null, "[Ej6Null] pendiente de implementar.");
+        String nombre = JOptionPane.showInputDialog(null,
+                "Ingresa tu nombre:",
+                "Saludo",
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (nombre == null || nombre.isBlank()) {
+            JOptionPane.showMessageDialog(null,
+                    "Cancelaste la operacion. El nombre es requerido.",
+                    "Nombre requerido",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            JOptionPane.showMessageDialog(null,
+                    "Hola, " + nombre.toUpperCase() + "!",
+                    "Saludo",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null,
+                    "Cancelaste la operacion. El nombre es requerido.",
+                    "Nombre requerido",
+                    JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
