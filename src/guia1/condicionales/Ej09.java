@@ -1,33 +1,27 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Guia 1 - Ejercicio 09 (Basico)
- * Login con equals
- *
- * Enunciado:
- * Simula un login: usuario 'admin' y contrasena '1234'.
- *  * Si coinciden: 'Bienvenido'. Si no: 'Credenciales incorrectas'.
- *  * Compara los String con equals(), nunca con ==.
- *
- * Autor: Daniel Ochoa
- */
 public class Ej09 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        ejecutar();
+    }
 
-        System.out.print("Usuario: ");
-        String usuario = sc.next();
-
-        System.out.print("Contrasena: ");
-        String clave = sc.next();
+    public static void ejecutar() {
+        String usuario = Guia1Dialogos.pedirTexto("Usuario:");
+        if (usuario == null) {
+            return;
+        }
+        String clave = Guia1Dialogos.pedirTexto("Contrasena:");
+        if (clave == null) {
+            return;
+        }
 
         if (usuario.equals("admin") && clave.equals("1234")) {
-            System.out.println("Bienvenido");
+            Guia1Dialogos.mostrarResultado("Ej09 - Login", "Bienvenido");
         } else {
-            System.out.println("Credenciales incorrectas");
+            Guia1Dialogos.mostrarResultado("Ej09 - Login", "Credenciales incorrectas");
         }
     }
 }

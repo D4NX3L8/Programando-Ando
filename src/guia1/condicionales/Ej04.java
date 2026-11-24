@@ -1,45 +1,37 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Guia 1 - Ejercicio 04 (Medio)
- * Calculadora con switch
- */
 public class Ej04 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        ejecutar();
+    }
 
-        System.out.print("Ingrese el primer numero: ");
-        double numero1 = sc.nextDouble();
-
-        System.out.print("Ingrese el segundo numero: ");
-        double numero2 = sc.nextDouble();
-
-        System.out.print("Ingrese el operador (+ - * /): ");
-        String operador = sc.next();
-
-        switch (operador) {
-            case "+":
-                System.out.println("Resultado: " + (numero1 + numero2));
-                break;
-            case "-":
-                System.out.println("Resultado: " + (numero1 - numero2));
-                break;
-            case "*":
-                System.out.println("Resultado: " + (numero1 * numero2));
-                break;
-            case "/":
-                if (numero2 == 0) {
-                    System.out.println("Error: Division entre cero");
-                } else {
-                    System.out.println("Resultado: " + (numero1 / numero2));
-                }
-                break;
-            default:
-                System.out.println("Error: Operador desconocido");
-                break;
+    public static void ejecutar() {
+        Double numero1 = Guia1Dialogos.pedirDecimal("Ingresa el primer numero:");
+        if (numero1 == null) {
+            return;
         }
+        Double numero2 = Guia1Dialogos.pedirDecimal("Ingresa el segundo numero:");
+        if (numero2 == null) {
+            return;
+        }
+        String operador = Guia1Dialogos.pedirTexto("Ingresa el operador (+, -, * o /):");
+        if (operador == null) {
+            return;
+        }
+
+        String resultado;
+        switch (operador) {
+            case "+" -> resultado = "Resultado: " + (numero1 + numero2);
+            case "-" -> resultado = "Resultado: " + (numero1 - numero2);
+            case "*" -> resultado = "Resultado: " + (numero1 * numero2);
+            case "/" -> resultado = numero2 == 0
+                    ? "Error: no se puede dividir entre cero."
+                    : "Resultado: " + (numero1 / numero2);
+            default -> resultado = "Error: operador desconocido.";
+        }
+        Guia1Dialogos.mostrarResultado("Ej04 - Calculadora", resultado);
     }
 }

@@ -1,22 +1,18 @@
 package guia1.ciclos;
 
-/**
- * Guia 1 - Ejercicio 11 (Basico)
- * Numeros del 1 al 50
- *
- * Enunciado:
- * Imprime los numeros del 1 al 50 usando un ciclo for.
- *
- * Autor: Jeronimo Henao
- */
+import guia1.Guia1Dialogos;
 
 public class Ej11 {
 
     public static void main(String[] args) {
+        ejecutar();
+    }
 
+    public static void ejecutar() {
+        StringBuilder resultado = new StringBuilder();
         for (int i = 1; i <= 50; i++) {
-            System.out.println(i);
+            resultado.append(i).append('\n');
         }
-
+        Guia1Dialogos.mostrarResultado("Ej11 - Numeros del 1 al 50", resultado.toString());
     }
 }

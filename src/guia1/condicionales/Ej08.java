@@ -1,28 +1,20 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Guia 1 - Ejercicio 08 (Medio)
- * Descuento por compra
- *
- * Enunciado:
- * Pide el valor de una compra y aplica descuento:
- *  * > 500000 = 20% | > 200000 = 15% | > 100000 = 10%.
- *  * Muestra valor original, valor del descuento y total a pagar.
- *
- * Autor: Daniel Ochoa
- */
 public class Ej08 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        ejecutar();
+    }
 
-        System.out.print("Ingrese el valor de la compra: ");
-        double compra = sc.nextDouble();
-
+    public static void ejecutar() {
+        Double compra = Guia1Dialogos.pedirDecimal("Ingresa el valor de la compra:");
+        if (compra == null) {
+            return;
+        }
         if (compra < 0) {
-            System.out.println("Valor invalido");
+            Guia1Dialogos.mostrarError("El valor de la compra no puede ser negativo.");
             return;
         }
 
@@ -36,11 +28,10 @@ public class Ej08 {
         } else {
             descuento = 0;
         }
-
         double total = compra - descuento;
-
-        System.out.println("Valor original: " + String.format("%,.0f", compra));
-        System.out.println("Valor del descuento: " + String.format("%,.0f", descuento));
-        System.out.println("Total a pagar: " + String.format("%,.0f", total));
+        String resultado = "Valor original: " + String.format("%,.0f", compra)
+                + "\nValor del descuento: " + String.format("%,.0f", descuento)
+                + "\nTotal a pagar: " + String.format("%,.0f", total);
+        Guia1Dialogos.mostrarResultado("Ej08 - Descuento por compra", resultado);
     }
 }

@@ -1,20 +1,15 @@
 package guia1.arreglos;
 
-/**
- * Guia 1 - Ejercicio 26 (Medio)
- * Contar ocurrencias
- *
- * Enunciado:
- * Cuenta cuantas veces aparece un numero especifico dentro de un arreglo int[].
- *
- * Autor: Jeronimo Henao
- */
+import guia1.Guia1Dialogos;
+
 public class Ej26 {
 
-     public static void main(String[] args) {
+    public static void main(String[] args) {
+        ejecutar();
+    }
 
+    public static void ejecutar() {
         int[] nums = {5, 8, 12, 3, 7, 15, 9, 2, 10, 4};
-
         int buscado = 7;
         int contador = 0;
 
@@ -23,12 +18,9 @@ public class Ej26 {
                 contador++;
             }
         }
-
-        if (contador == 1) {
-            System.out.println(buscado + " aparece " + contador + " vez");
-        } else {
-            System.out.println(buscado + " aparece " + contador + " veces");
-        }
-
+        String frecuencia = contador == 1 ? " vez" : " veces";
+        Guia1Dialogos.mostrarResultado(
+                "Ej26 - Contar ocurrencias",
+                buscado + " aparece " + contador + frecuencia + ".");
     }
 }

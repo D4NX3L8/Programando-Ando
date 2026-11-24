@@ -61,13 +61,13 @@ bash scripts/compilar.sh     # compila todo en out/
 bash scripts/ejecutar.sh     # abre el menú principal
 ```
 
-En VS Code también funciona el botón ▶ *Run* sobre cualquier clase con `main`.
+En VS Code también funciona el botón ▶ *Run* sobre `Main`. El menú permite elegir la Guía 1
+y luego cualquiera de sus 29 ejercicios; sus entradas y resultados aparecen en ventanas.
 
-Ejercicio individual por consola:
+Para abrir directamente el selector de ejercicios de la Guía 1:
 
 ```bash
-javac -d out -cp "libs/*" src/guia1/condicionales/Ej01.java
-java -cp out guia1.condicionales.Ej01
+java -cp "out:libs/*" guia1.Guia1Main
 ```
 
 Sistema del restaurante (requiere entorno gráfico para los `JOptionPane`):

@@ -1,19 +1,14 @@
 package guia1.arreglos;
 
-/**
- * Guia 1 - Ejercicio 24 (Medio)
- * Mayor de un arreglo
- *
- * Enunciado:
- * Encuentra el numero mayor dentro de un arreglo int[] usando un ciclo for.
- *
- * Autor: Jeronimo Henao
- */
+import guia1.Guia1Dialogos;
 
 public class Ej24 {
 
     public static void main(String[] args) {
+        ejecutar();
+    }
 
+    public static void ejecutar() {
         int[] nums = {
             5, 12, 8, 20, 3,
             15, 7, 9, 11, 4,
@@ -28,8 +23,6 @@ public class Ej24 {
                 mayor = nums[i];
             }
         }
-
-        System.out.println("El numero mayor es: " + mayor);
-
+        Guia1Dialogos.mostrarResultado("Ej24 - Mayor de un arreglo", "El mayor es: " + mayor);
     }
 }

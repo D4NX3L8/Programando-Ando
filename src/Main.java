@@ -6,7 +6,7 @@ import guia2.Guia2App;
 /**
  * Punto de entrada general del proyecto.
  *
- *   1) Guia 1 -> ejercicios de logica en consola (Scanner).
+ *   1) Guia 1 -> ejercicios de logica con JOptionPane.
  *   2) Guia 2 -> sistema de restaurante con JOptionPane + SQLite.
  *
  * Compilar:  bash scripts/compilar.sh
@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
         String[] opciones = {
-                "Guia 1 - Logica (consola)",
+                "Guia 1 - Logica (JOptionPane)",
                 "Guia 2 - Persistencia (JOptionPane)",
                 "Salir"
         };

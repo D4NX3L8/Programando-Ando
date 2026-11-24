@@ -1,17 +1,14 @@
 package guia1.arreglos;
 
-/**
- * Guia 1 - Ejercicio 25 (Medio)
- * Menor de un arreglo
- *
- * Enunciado:
- * Encuentra el numero menor dentro de un arreglo int[] usando un ciclo for.
- *
- * Autor: Daniel Ochoa Taborda
- */
+import guia1.Guia1Dialogos;
+
 public class Ej25 {
 
     public static void main(String[] args) {
+        ejecutar();
+    }
+
+    public static void ejecutar() {
         int[] nums = {5, 12, 7, 3, 20, 8, 15, 1, 9, 4};
         int menor = nums[0];
 
@@ -20,7 +17,6 @@ public class Ej25 {
                 menor = nums[i];
             }
         }
-
-        System.out.println(menor);
+        Guia1Dialogos.mostrarResultado("Ej25 - Menor de un arreglo", "El menor es: " + menor);
     }
 }

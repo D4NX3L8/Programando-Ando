@@ -1,20 +1,19 @@
 package guia1.arreglos;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej23 - Suma de los elementos de un arreglo.
- */
 public class Ej23 {
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej23: Suma de un arreglo ===");
-        int[] nums = {5, 12, 7, 3, 20, 8, 15, 1, 9, 4};
+    public static void main(String[] args) {
+        ejecutar();
+    }
 
+    public static void ejecutar() {
+        int[] nums = {5, 12, 7, 3, 20, 8, 15, 1, 9, 4};
         int suma = 0;
-        for (int i = 0; i < nums.length; i++) { // < y no <=
+        for (int i = 0; i < nums.length; i++) {
             suma += nums[i];
         }
-        System.out.println("La suma de los elementos es: " + suma); // 84
+        Guia1Dialogos.mostrarResultado("Ej23 - Suma de un arreglo", "La suma es: " + suma);
     }
 }

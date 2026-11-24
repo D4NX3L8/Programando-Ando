@@ -1,19 +1,22 @@
 package guia1.ciclos;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej18 - Tablas de multiplicar del 1 al 10 (ciclos anidados).
- */
 public class Ej18 {
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej18: Tablas del 1 al 10 ===");
+    public static void main(String[] args) {
+        ejecutar();
+    }
+
+    public static void ejecutar() {
+        StringBuilder resultado = new StringBuilder();
         for (int tabla = 1; tabla <= 10; tabla++) {
-            System.out.println("--- Tabla del " + tabla + " ---");
+            resultado.append("--- Tabla del ").append(tabla).append(" ---\n");
             for (int i = 1; i <= 10; i++) {
-                System.out.println(tabla + " x " + i + " = " + (tabla * i));
+                resultado.append(tabla).append(" x ").append(i).append(" = ")
+                        .append(tabla * i).append('\n');
             }
         }
+        Guia1Dialogos.mostrarResultado("Ej18 - Tablas del 1 al 10", resultado.toString());
     }
 }

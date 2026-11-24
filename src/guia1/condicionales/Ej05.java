@@ -1,28 +1,21 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej05 - Anio bisiesto.
- * Regla: divisible entre 4 y no entre 100, o divisible entre 400.
- */
 public class Ej05 {
 
     public static void main(String[] args) {
-        ejecutar(new Scanner(System.in));
+        ejecutar();
     }
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej05: Anio bisiesto ===");
-        System.out.print("Ingrese un anio: ");
-        int anio = sc.nextInt();
+    public static void ejecutar() {
+        Integer anio = Guia1Dialogos.pedirEntero("Ingresa un anio:");
+        if (anio == null) {
+            return;
+        }
 
         boolean bisiesto = (anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0;
-
-        if (bisiesto) {
-            System.out.println(anio + " es bisiesto");
-        } else {
-            System.out.println(anio + " no es bisiesto");
-        }
+        String resultado = anio + (bisiesto ? " es bisiesto." : " no es bisiesto.");
+        Guia1Dialogos.mostrarResultado("Ej05 - Anio bisiesto", resultado);
     }
 }

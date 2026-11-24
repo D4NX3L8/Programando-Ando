@@ -1,28 +1,25 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej01 - Positivo, negativo o cero.
- * Pide un numero entero y dice si es positivo, negativo o cero.
- */
 public class Ej01 {
 
     public static void main(String[] args) {
-        ejecutar(new Scanner(System.in));
+        ejecutar();
     }
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej01: Positivo, negativo o cero ===");
-        System.out.print("Ingrese un numero entero: ");
-        int n = sc.nextInt();
+    public static void ejecutar() {
+        Integer n = Guia1Dialogos.pedirEntero("Ingresa un numero entero:");
+        if (n == null) {
+            return;
+        }
 
         if (n > 0) {
-            System.out.println("Positivo");
+            Guia1Dialogos.mostrarResultado("Ej01", "Positivo");
         } else if (n < 0) {
-            System.out.println("Negativo");
+            Guia1Dialogos.mostrarResultado("Ej01", "Negativo");
         } else {
-            System.out.println("Cero");
+            Guia1Dialogos.mostrarResultado("Ej01", "Cero");
         }
     }
 }

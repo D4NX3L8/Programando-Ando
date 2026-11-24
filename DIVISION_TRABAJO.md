@@ -81,8 +81,8 @@ Un commit por bloque terminado (no un commit por línea, no todo en un solo comm
 - **`PreparedStatement` siempre**, nunca concatenar SQL.
 - Comparar `String` con `.equals()`, nunca con `==`.
 - Usar `try-with-resources` para `Connection`, `PreparedStatement` y `ResultSet`.
-- Los ejercicios de la Guía 1 **no deben cerrar el `Scanner`** (`sc.close()`), porque
-  `Guia1Main` lo reutiliza para volver al menú.
+- Los ejercicios de la Guía 1 reciben y muestran datos con `JOptionPane` mediante
+  `Guia1Dialogos`; cancelar una entrada vuelve al selector.
 - Ningún `catch` vacío: siempre mostrar o registrar el error.
 
 ### 1.4 Compilar y ejecutar
@@ -129,7 +129,8 @@ existen** en el repositorio (aunque su cuerpo esté en `TODO`).
 ## 3. Guía 1 — Lógica en Java (29 ejercicios)
 
 **Carpeta:** `src/guia1/` · **Menú de prueba:** `guia1.Guia1Main`
-**Todos** usan `Scanner` para la entrada y se ejecutan sin errores.
+**Todos** usan `JOptionPane` para la entrada y los resultados. El selector permite ejecutar
+cualquiera de los 29 ejercicios y volver a elegir otro.
 
 ### 3.1 Reparto equitativo (por qué así)
 
@@ -177,7 +178,7 @@ con condicionales ni solo con ciclos.
 - Usar `String.format("%,.0f", valor)` para que se vea `$500.000`.
 
 **Ej09 · Login con equals** — `src/guia1/condicionales/Ej09.java`
-- Pide usuario y contraseña con `sc.next()`.
+- Pide usuario y contraseña con diálogos.
 - Comparar `usuario.equals("admin") && clave.equals("1234")`.
 - `"Bienvenido"` o `"Credenciales incorrectas"`.
 - Aceptación: `admin 1234` y `admin 1111` (debe fallar).
@@ -225,7 +226,7 @@ con condicionales ni solo con ciclos.
 - Aceptación: `20`, `15`, `-1`.
 
 **Ej04 · Calculadora con switch** — `src/guia1/condicionales/Ej04.java`
-- Pide dos números (`double`) y un operador con `sc.next().charAt(0)`.
+- Pide dos números (`double`) y un operador con diálogos.
 - `switch (op)` con `'+'`, `'-'`, `'*'`, `'/'`.
 - En `'/'`: si el divisor es `0` → `"No se puede dividir entre cero"` (validar **antes** de dividir).
 - `default` → `"Operador invalido"`. Salida: `"Resultado: " + resultado`.
@@ -335,7 +336,7 @@ java -cp out guia1.Guia1Main
 ```
 
 Elegir el número del ejercicio, probar los casos de aceptación y volver al menú.
-**Criterio de terminado:** compila, corre con `Scanner`, valida lo que dice el enunciado y
+**Criterio de terminado:** compila, corre con `JOptionPane`, valida lo que dice el enunciado y
 no imprime resultados "quemados" (los valores deben salir de la lógica).
 
 ---
@@ -691,7 +692,7 @@ las entradas, que el login tenga los 3 intentos y que cada uno sepa explicar su 
 | Comparar `String` con `==` | El login falla aunque las credenciales sean correctas | Usar `.equals()` |
 | Concatenar SQL (`"... WHERE id = " + id`) | Inyección SQL, criterio de seguridad en cero | `PreparedStatement` con `?` |
 | No validar la división entre cero | `ArithmeticException` y el programa se cae | Validar antes de dividir |
-| Cerrar el `Scanner` en un ejercicio | El menú de la Guía 1 deja de leer | No llamar `sc.close()` |
+| No manejar Cancelar en un diálogo | El ejercicio puede recibir una entrada nula | Volver al selector cuando se cancela |
 | `int` para el factorial | Resultado negativo desde 13! | Usar `long` |
 | Inicializar el mayor en `0` | Falla con arreglos de negativos | Iniciar en `nums[0]` |
 | `i <= arreglo.length` | `ArrayIndexOutOfBoundsException` | Usar `<` |

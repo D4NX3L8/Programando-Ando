@@ -1,28 +1,28 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej07 - Mayor de tres numeros.
- * Ademas detecta empates con el mayor.
- */
 public class Ej07 {
 
     public static void main(String[] args) {
-        ejecutar(new Scanner(System.in));
+        ejecutar();
     }
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej07: Mayor de tres numeros ===");
-        System.out.print("Ingrese el primer numero: ");
-        int a = sc.nextInt();
-        System.out.print("Ingrese el segundo numero: ");
-        int b = sc.nextInt();
-        System.out.print("Ingrese el tercer numero: ");
-        int c = sc.nextInt();
+    public static void ejecutar() {
+        Integer a = Guia1Dialogos.pedirEntero("Ingresa el primer numero:");
+        if (a == null) {
+            return;
+        }
+        Integer b = Guia1Dialogos.pedirEntero("Ingresa el segundo numero:");
+        if (b == null) {
+            return;
+        }
+        Integer c = Guia1Dialogos.pedirEntero("Ingresa el tercer numero:");
+        if (c == null) {
+            return;
+        }
 
         int mayor = Math.max(a, Math.max(b, c));
-
         int iguales = 0;
         if (a == mayor) {
             iguales++;
@@ -33,12 +33,12 @@ public class Ej07 {
         if (c == mayor) {
             iguales++;
         }
-
-        System.out.println("El mayor es: " + mayor);
+        StringBuilder resultado = new StringBuilder("El mayor es: ").append(mayor);
         if (iguales == 2) {
-            System.out.println("Empate entre dos numeros");
+            resultado.append("\nEmpate entre dos numeros.");
         } else if (iguales == 3) {
-            System.out.println("Empate entre los tres");
+            resultado.append("\nEmpate entre los tres.");
         }
+        Guia1Dialogos.mostrarResultado("Ej07 - Mayor de tres numeros", resultado.toString());
     }
 }

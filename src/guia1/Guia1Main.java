@@ -1,6 +1,6 @@
 package guia1;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 import guia1.arreglos.Ej22;
 import guia1.arreglos.Ej23;
@@ -32,129 +32,97 @@ import guia1.condicionales.Ej08;
 import guia1.condicionales.Ej09;
 import guia1.condicionales.Ej10;
 
-/**
- * Guia 1 - Menu para ejecutar cualquiera de los 29 ejercicios.
- *
- * Uso: java guia1.Guia1Main
- *
- * IMPORTANTE: los ejercicios NO deben cerrar su Scanner de System.in,
- * porque si lo cierran este menu ya no puede leer la siguiente opcion.
- */
 public class Guia1Main {
 
+    private static final String[] OPCIONES = {
+        "Ej01 - Positivo, negativo o cero",
+        "Ej02 - Par o impar",
+        "Ej03 - Control de acceso por edad",
+        "Ej04 - Calculadora",
+        "Ej05 - Anio bisiesto",
+        "Ej06 - Clasificacion de notas",
+        "Ej07 - Mayor de tres numeros",
+        "Ej08 - Descuento por compra",
+        "Ej09 - Login",
+        "Ej10 - Calculadora de IMC",
+        "Ej11 - Numeros del 1 al 50",
+        "Ej12 - Numeros del 50 al 1",
+        "Ej13 - Pares del 1 al 100",
+        "Ej14 - Impares del 1 al 100",
+        "Ej15 - Suma del 1 al 100",
+        "Ej16 - Suma de impares del 1 al 50",
+        "Ej17 - Tabla del 7",
+        "Ej18 - Tablas del 1 al 10",
+        "Ej19 - Multiplos de 10",
+        "Ej20 - Divisibles entre 3 y 5",
+        "Ej21 - Factorial",
+        "Ej22 - Recorrer un arreglo",
+        "Ej23 - Suma de un arreglo",
+        "Ej24 - Mayor de un arreglo",
+        "Ej25 - Menor de un arreglo",
+        "Ej26 - Contar ocurrencias",
+        "Ej27 - Cuadrado de asteriscos",
+        "Ej28 - Numeros y sus cubos",
+        "Ej29 - Recorrer una palabra",
+        "Salir"
+    };
+
+    private static final Runnable[] EJERCICIOS = {
+        Ej01::ejecutar,
+        Ej02::ejecutar,
+        Ej03::ejecutar,
+        Ej04::ejecutar,
+        Ej05::ejecutar,
+        Ej06::ejecutar,
+        Ej07::ejecutar,
+        Ej08::ejecutar,
+        Ej09::ejecutar,
+        Ej10::ejecutar,
+        Ej11::ejecutar,
+        Ej12::ejecutar,
+        Ej13::ejecutar,
+        Ej14::ejecutar,
+        Ej15::ejecutar,
+        Ej16::ejecutar,
+        Ej17::ejecutar,
+        Ej18::ejecutar,
+        Ej19::ejecutar,
+        Ej20::ejecutar,
+        Ej21::ejecutar,
+        Ej22::ejecutar,
+        Ej23::ejecutar,
+        Ej24::ejecutar,
+        Ej25::ejecutar,
+        Ej26::ejecutar,
+        Ej27::ejecutar,
+        Ej28::ejecutar,
+        Ej29::ejecutar
+    };
+
+    private Guia1Main() {
+    }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int opcion;
+        while (true) {
+            Object seleccion = JOptionPane.showInputDialog(
+                    null,
+                    "Selecciona el ejercicio que quieres probar:",
+                    "Guia 1 - Logica en Java",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    OPCIONES,
+                    OPCIONES[0]);
 
-        do {
-            System.out.println();
-            System.out.println("=== GUIA 1: LOGICA EN JAVA ===");
-            System.out.println("Condicionales 1-10 | Ciclos 11-21 | Arreglos 22-29");
-            System.out.print("Numero de ejercicio (0 para salir): ");
-
-            if (!sc.hasNextInt()) {
-                sc.next();
-                System.out.println("Ingresa un numero valido.");
-                opcion = -1;
-                continue;
+            if (!(seleccion instanceof String opcion) || "Salir".equals(opcion)) {
+                return;
             }
-            opcion = sc.nextInt();
 
-            switch (opcion) {
-                case 1:
-                    Ej01.ejecutar(sc);
+            for (int i = 0; i < EJERCICIOS.length; i++) {
+                if (OPCIONES[i].equals(opcion)) {
+                    EJERCICIOS[i].run();
                     break;
-                case 2:
-                    Ej02.main(null);
-                    break;
-                case 3:
-                    Ej03.main(null);
-                    break;
-                case 4:
-                    Ej04.main(null);
-                    break;
-                case 5:
-                    Ej05.ejecutar(sc);
-                    break;
-                case 6:
-                    Ej06.ejecutar(sc);
-                    break;
-                case 7:
-                    Ej07.ejecutar(sc);
-                    break;
-                case 8:
-                    Ej08.main(null);
-                    break;
-                case 9:
-                    Ej09.main(null);
-                    break;
-                case 10:
-                    Ej10.main(null);
-                    break;
-                case 11:
-                    Ej11.main(null);
-                    break;
-                case 12:
-                    Ej12.ejecutar(sc);
-                    break;
-                case 13:
-                    Ej13.ejecutar(sc);
-                    break;
-                case 14:
-                    Ej14.main(null);
-                    break;
-                case 15:
-                    Ej15.ejecutar(sc);
-                    break;
-                case 16:
-                    Ej16.main(null);
-                    break;
-                case 17:
-                    Ej17.main(null);
-                    break;
-                case 18:
-                    Ej18.ejecutar(sc);
-                    break;
-                case 19:
-                    Ej19.main(null);
-                    break;
-                case 20:
-                    Ej20.main(null);
-                    break;
-                case 21:
-                    Ej21.main(null);
-                    break;
-                case 22:
-                    Ej22.main(null);
-                    break;
-                case 23:
-                    Ej23.ejecutar(sc);
-                    break;
-                case 24:
-                    Ej24.main(null);
-                    break;
-                case 25:
-                    Ej25.main(null);
-                    break;
-                case 26:
-                    Ej26.main(null);
-                    break;
-                case 27:
-                    Ej27.main(null);
-                    break;
-                case 28:
-                    Ej28.main(null);
-                    break;
-                case 29:
-                    Ej29.ejecutar(sc);
-                    break;
-                case 0:
-                    System.out.println("Saliendo de la Guia 1.");
-                    break;
-                default:
-                    System.out.println("Ese ejercicio no existe (1-29).");
-                    break;
+                }
             }
-        } while (opcion != 0);
+        }
     }
 }

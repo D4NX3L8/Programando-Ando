@@ -1,25 +1,27 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Guia 1 - Ejercicio 03 (Basico)
- * Control de acceso por edad
- */
 public class Ej03 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        ejecutar();
+    }
 
-        System.out.print("Ingrese su edad: ");
-        int edad = sc.nextInt();
-
-        if (edad < 0) {
-            System.out.println("Edad invalida");
-        } else if (edad >= 18) {
-            System.out.println("Puede ingresar");
-        } else {
-            System.out.println("Acceso denegado");
+    public static void ejecutar() {
+        Integer edad = Guia1Dialogos.pedirEntero("Ingresa tu edad:");
+        if (edad == null) {
+            return;
         }
+
+        String resultado;
+        if (edad < 0) {
+            resultado = "Edad invalida";
+        } else if (edad >= 18) {
+            resultado = "Puede ingresar";
+        } else {
+            resultado = "Acceso denegado";
+        }
+        Guia1Dialogos.mostrarResultado("Ej03", resultado);
     }
 }

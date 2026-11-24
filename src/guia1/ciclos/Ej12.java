@@ -1,16 +1,18 @@
 package guia1.ciclos;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej12 - Numeros del 50 al 1 (ciclo descendente).
- */
 public class Ej12 {
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej12: Numeros del 50 al 1 ===");
+    public static void main(String[] args) {
+        ejecutar();
+    }
+
+    public static void ejecutar() {
+        StringBuilder resultado = new StringBuilder();
         for (int i = 50; i >= 1; i--) {
-            System.out.println(i);
+            resultado.append(i).append('\n');
         }
+        Guia1Dialogos.mostrarResultado("Ej12 - Numeros del 50 al 1", resultado.toString());
     }
 }

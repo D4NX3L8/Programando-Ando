@@ -1,18 +1,20 @@
 package guia1.ciclos;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej13 - Pares del 1 al 100.
- */
 public class Ej13 {
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej13: Pares del 1 al 100 ===");
+    public static void main(String[] args) {
+        ejecutar();
+    }
+
+    public static void ejecutar() {
+        StringBuilder resultado = new StringBuilder();
         for (int i = 1; i <= 100; i++) {
             if (i % 2 == 0) {
-                System.out.println(i);
+                resultado.append(i).append('\n');
             }
         }
+        Guia1Dialogos.mostrarResultado("Ej13 - Pares del 1 al 100", resultado.toString());
     }
 }

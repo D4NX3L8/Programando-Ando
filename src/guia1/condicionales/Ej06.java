@@ -1,24 +1,20 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Ej06 - Clasificacion de notas.
- * Primero se valida el rango 0-100 y despues se clasifica de mayor a menor.
- */
 public class Ej06 {
 
     public static void main(String[] args) {
-        ejecutar(new Scanner(System.in));
+        ejecutar();
     }
 
-    public static void ejecutar(Scanner sc) {
-        System.out.println("=== Ej06: Clasificacion de notas ===");
-        System.out.print("Ingrese la nota (0 a 100): ");
-        int nota = sc.nextInt();
-
+    public static void ejecutar() {
+        Integer nota = Guia1Dialogos.pedirEntero("Ingresa la nota (0 a 100):");
+        if (nota == null) {
+            return;
+        }
         if (nota < 0 || nota > 100) {
-            System.out.println("Nota invalida");
+            Guia1Dialogos.mostrarError("La nota debe estar entre 0 y 100.");
             return;
         }
 
@@ -34,7 +30,7 @@ public class Ej06 {
         } else {
             clasificacion = "Reprobado";
         }
-
-        System.out.println("Nota " + nota + ": " + clasificacion);
+        Guia1Dialogos.mostrarResultado(
+                "Ej06 - Clasificacion de notas", "Nota " + nota + ": " + clasificacion);
     }
 }

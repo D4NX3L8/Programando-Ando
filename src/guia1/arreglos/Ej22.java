@@ -1,25 +1,19 @@
 package guia1.arreglos;
 
-/**
- * Guia 1 - Ejercicio 22 (Medio)
- * Recorrer un arreglo
- *
- * Enunciado:
- * Declara un arreglo int[] de 10 numeros e imprime cada elemento con un ciclo for.
- *
- * Autor: Jeronimo Henao
- */
-
+import guia1.Guia1Dialogos;
 
 public class Ej22 {
 
     public static void main(String[] args) {
+        ejecutar();
+    }
 
+    public static void ejecutar() {
         int[] nums = {5, 8, 12, 3, 7, 15, 9, 2, 10, 4};
-
+        StringBuilder resultado = new StringBuilder();
         for (int i = 0; i < nums.length; i++) {
-            System.out.println("nums[" + i + "] = " + nums[i]);
+            resultado.append("nums[").append(i).append("] = ").append(nums[i]).append('\n');
         }
-
+        Guia1Dialogos.mostrarResultado("Ej22 - Recorrer un arreglo", resultado.toString());
     }
 }

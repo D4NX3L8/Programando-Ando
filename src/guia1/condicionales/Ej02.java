@@ -1,28 +1,23 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Guia 1 - Ejercicio 02 (Basico)
- * Par o impar
- *
- * Enunciado:
- * Pide un numero entero y determina si es Par o Impar usando el operador modulo (%).
- *
- * Autor: Daniel Ochoa
- */
 public class Ej02 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        ejecutar();
+    }
 
-        System.out.print("Ingrese un numero entero: ");
-        int numero = sc.nextInt();
+    public static void ejecutar() {
+        Integer numero = Guia1Dialogos.pedirEntero("Ingresa un numero entero:");
+        if (numero == null) {
+            return;
+        }
 
         if (numero % 2 == 0) {
-            System.out.println("Par");
+            Guia1Dialogos.mostrarResultado("Ej02", "Par");
         } else {
-            System.out.println("Impar");
+            Guia1Dialogos.mostrarResultado("Ej02", "Impar");
         }
     }
 }

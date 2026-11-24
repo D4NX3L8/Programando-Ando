@@ -1,38 +1,40 @@
 package guia1.condicionales;
 
-import java.util.Scanner;
+import guia1.Guia1Dialogos;
 
-/**
- * Guia 1 - Ejercicio 10 (Avanzado)
- * Calculadora de IMC
- */
 public class Ej10 {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        ejecutar();
+    }
 
-        System.out.print("Ingrese su peso en kg: ");
-        double peso = sc.nextDouble();
-
-        System.out.print("Ingrese su altura en metros: ");
-        double altura = sc.nextDouble();
-
-        if (peso <= 0 || altura <= 0) {
-            System.out.println("Error: peso o altura invalida");
-        } else {
-            double imc = peso / (altura * altura);
-
-            System.out.printf("Su IMC es: %.2f%n", imc);
-
-            if (imc < 18.5) {
-                System.out.println("Clasificacion: Bajo peso");
-            } else if (imc < 25) {
-                System.out.println("Clasificacion: Normal");
-            } else if (imc < 30) {
-                System.out.println("Clasificacion: Sobrepeso");
-            } else {
-                System.out.println("Clasificacion: Obesidad");
-            }
+    public static void ejecutar() {
+        Double peso = Guia1Dialogos.pedirDecimal("Ingresa tu peso en kilogramos:");
+        if (peso == null) {
+            return;
         }
+        Double altura = Guia1Dialogos.pedirDecimal("Ingresa tu altura en metros:");
+        if (altura == null) {
+            return;
+        }
+        if (peso <= 0 || altura <= 0) {
+            Guia1Dialogos.mostrarError("El peso y la altura deben ser mayores que cero.");
+            return;
+        }
+
+        double imc = peso / (altura * altura);
+        String clasificacion;
+        if (imc < 18.5) {
+            clasificacion = "Bajo peso";
+        } else if (imc < 25) {
+            clasificacion = "Normal";
+        } else if (imc < 30) {
+            clasificacion = "Sobrepeso";
+        } else {
+            clasificacion = "Obesidad";
+        }
+        Guia1Dialogos.mostrarResultado(
+                "Ej10 - Calculadora de IMC",
+                String.format("Su IMC es: %.2f%nClasificacion: %s", imc, clasificacion));
     }
 }
