@@ -4,44 +4,76 @@ import guia2.dao.UsuarioDAO;
 import guia2.vista.LoginVista;
 
 /**
- * Guia 2 - Modulo B (autenticacion) y Modulo D (cerrar sesion).
- *
- * Reglas de la guia (3.4):
- *   - Pide usuario y contrasena con JOptionPane.
- *   - Valida con PreparedStatement (UsuarioDAO.validar).
- *   - Si falla, avisa y vuelve a pedir: MAXIMO 3 intentos y luego cierra.
- *   - Si acierta, guarda el usuario en memoria y deja entrar al menu.
- *
- * TODO (Jeronimo): implementar iniciarSesion() y cerrarSesion().
+ * Controlador de autenticacion y sesion.
+ * Autor: Jeronimo Henao
  */
 public class LoginControlador {
 
     private static final int MAX_INTENTOS = 3;
 
-    private final UsuarioDAO usuarioDAO = new UsuarioDAO();
-    private final LoginVista vista = new LoginVista();
+    private final UsuarioDAO usuarioDAO;
+    private final LoginVista vista;
 
     private String usuarioActual;
 
-    /**
-     * @return true si el login fue exitoso; false si se agotaron los intentos
-     *         o el usuario cancelo.
-     */
-    public boolean iniciarSesion() {
-        // TODO (Jeronimo): ciclo de 3 intentos + validacion + mensajes.
-        return false;
+    public LoginControlador() {
+        this.usuarioDAO = new UsuarioDAO();
+        this.vista = new LoginVista();
     }
 
-    /**
-     * Limpia la sesion en memoria para que otro usuario pueda entrar sin
-     * cerrar el programa (Modulo D).
-     */
-    public void cerrarSesion() {
-        // TODO (Jeronimo)
+    public LoginControlador(UsuarioDAO usuarioDAO, LoginVista vista) {
+        this.usuarioDAO = usuarioDAO;
+        this.vista = vista;
+    }
+
+    public boolean iniciarSesion() {
+
         usuarioActual = null;
+
+        for (int intento = 1; intento <= MAX_INTENTOS; intento++) {
+
+            String user = vista.pedirUsuario();
+
+            if (user == null) {
+                return false;
+            }
+
+            String pass = vista.pedirPassword();
+
+            if (pass == null) {
+                return false;
+            }
+
+            if (user.isBlank() || pass.isBlank()) {
+                vista.mostrarError(
+                        "Los campos son obligatorios. Intento "
+                        + intento + " de 3.");
+                continue;
+            }
+
+            if (usuarioDAO.validar(user, pass)) {
+                usuarioActual = user;
+
+                vista.mostrarBienvenida(user);
+
+                return true;
+            }
+
+            vista.mostrarError(
+                    "Credenciales incorrectas. Intento "
+                    + intento + " de 3.");
+        }
+
+        vista.mostrarBloqueado();
+
+        return false;
     }
 
     public String getUsuarioActual() {
         return usuarioActual;
+    }
+
+    public void cerrarSesion() {
+        usuarioActual = null;
     }
 }
