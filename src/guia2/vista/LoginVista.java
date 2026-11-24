@@ -3,45 +3,35 @@ package guia2.vista;
 import javax.swing.JOptionPane;
 
 /**
- * Guia 2 - Modulo B (login con JOptionPane).
- * Toda la interaccion con el usuario del login pasa por aqui: la vista NO
- * conoce la base de datos ni la logica, solo muestra y recoge datos.
- *
- * TODO (Jeronimo): implementar los metodos.
+ * Vista de inicio de sesion.
+ * Autor: Jeronimo Henao
  */
 public class LoginVista {
 
-    /**
-     * JOptionPane.showInputDialog("Usuario:")
-     * @return el texto ingresado o null si el usuario cancela.
-     */
     public String pedirUsuario() {
-        // TODO (Jeronimo)
-        return null;
+        return JOptionPane.showInputDialog("Usuario:");
     }
 
-    /**
-     * Pide la contrasena. Nota: JOptionPane no permite ocultar el texto;
-     * si se quiere, se puede usar JPasswordField dentro de un panel.
-     * @return el texto ingresado o null si el usuario cancela.
-     */
     public String pedirPassword() {
-        // TODO (Jeronimo)
-        return null;
+        return JOptionPane.showInputDialog("Contrasena:");
     }
 
     public void mostrarBienvenida(String usuario) {
-        // TODO (Jeronimo): JOptionPane.showMessageDialog(...)
+        JOptionPane.showMessageDialog(null,
+                "Bienvenido, " + usuario);
     }
 
     public void mostrarError(String mensaje) {
-        // TODO (Jeronimo): JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE)
+        JOptionPane.showMessageDialog(null,
+                mensaje,
+                "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
     }
 
-    /**
-     * Mensaje final cuando se agotan los 3 intentos de login.
-     */
     public void mostrarBloqueado() {
-        // TODO (Jeronimo)
+        JOptionPane.showMessageDialog(null,
+                "Demasiados intentos fallidos. Cerrando el sistema.",
+                "Acceso bloqueado",
+                JOptionPane.ERROR_MESSAGE);
     }
 }
