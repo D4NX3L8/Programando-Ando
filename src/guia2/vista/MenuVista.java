@@ -12,18 +12,45 @@ import javax.swing.JOptionPane;
  *   4 = Eliminar plato
  *   5 = Cerrar sesion
  *   0 = Salir del programa
- *
- * TODO (Juan Pablo): implementar mostrarMenu() y despedida().
  */
 public class MenuVista {
 
     public int mostrarMenu(String usuario) {
-        // TODO (Juan Pablo): showOptionDialog con las 6 opciones y
-        // devolver el numero del contrato. Si se cierra el dialogo, devolver 0.
+        Object[] opciones = {
+                "Agregar plato",
+                "Ver todos",
+                "Actualizar",
+                "Eliminar",
+                "Cerrar sesion",
+                "Salir"
+        };
+
+        int posicion = JOptionPane.showOptionDialog(
+                null,
+                "Seleccione una opcion:",
+                "Menu principal - " + usuario,
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                opciones,
+                opciones[0]);
+
+        if (posicion == 4) {
+            return 5;
+        }
+        if (posicion == 5) {
+            return 0;
+        }
+        if (posicion >= 0 && posicion <= 3) {
+            return posicion + 1;
+        }
         return 0;
     }
 
     public void despedida() {
-        // TODO (Juan Pablo)
+        JOptionPane.showMessageDialog(null,
+                "Gracias por usar Sabor Local.",
+                "Sabor Local",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 }

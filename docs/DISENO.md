@@ -18,9 +18,6 @@ Cada plato tiene nombre, categoría, precio y disponibilidad.
 
 ## 2. Diagrama de clases
 
-> TODO (Juan Pablo): reemplazar por el diagrama real. Se puede usar Mermaid (VS Code lo
-> previsualiza con la extensión Markdown Preview Mermaid) o una imagen exportada de draw.io.
-
 ```mermaid
 classDiagram
     class Usuario {
@@ -44,6 +41,7 @@ classDiagram
         +existe(String) boolean
         +insertar(Usuario) void
         +insertarSiNoExiste(String, String) void
+        +listar() List~Usuario~
     }
 
     class PlatoDAO {
@@ -52,6 +50,8 @@ classDiagram
         +buscarPorId(int) Plato
         +actualizar(Plato) boolean
         +eliminar(int) boolean
+        +existePorNombre(String) boolean
+        +insertarSiNoExiste(Plato) void
     }
 
     class LoginVista

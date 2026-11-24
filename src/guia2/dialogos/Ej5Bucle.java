@@ -17,7 +17,36 @@ import javax.swing.JOptionPane;
 public class Ej5Bucle {
 
     public static void main(String[] args) {
-        // TODO: implementar con JOptionPane + try/catch.
-        JOptionPane.showMessageDialog(null, "[Ej5Bucle] pendiente de implementar.");
+        boolean valido = false;
+
+        while (!valido) {
+            try {
+                String texto = JOptionPane.showInputDialog(null,
+                        "Ingresa un numero entre 1 y 100:",
+                        "Validacion",
+                        JOptionPane.QUESTION_MESSAGE);
+
+                int numero = Integer.parseInt(texto);
+                if (numero < 1 || numero > 100) {
+                    throw new IllegalArgumentException("Fuera de rango");
+                }
+
+                JOptionPane.showMessageDialog(null,
+                        "Numero aceptado: " + numero,
+                        "Validacion",
+                        JOptionPane.INFORMATION_MESSAGE);
+                valido = true;
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null,
+                        "Solo numeros enteros.",
+                        "Dato invalido",
+                        JOptionPane.ERROR_MESSAGE);
+            } catch (IllegalArgumentException e) {
+                JOptionPane.showMessageDialog(null,
+                        "El numero debe estar entre 1 y 100.",
+                        "Dato fuera de rango",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 }

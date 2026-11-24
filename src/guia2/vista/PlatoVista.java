@@ -9,8 +9,6 @@ import guia2.modelo.Plato;
 /**
  * Guia 2 - Modulo C (formularios del CRUD).
  * Recoge y muestra los datos del plato. No accede a la base de datos.
- *
- * TODO (Juan Pablo): implementar todos los metodos.
  */
 public class PlatoVista {
 
@@ -19,8 +17,41 @@ public class PlatoVista {
      * @return el Plato armado o null si el usuario cancela.
      */
     public Plato pedirNuevo() {
-        // TODO (Juan Pablo)
-        return null;
+        String nombre = JOptionPane.showInputDialog(null, "Nombre del plato:");
+        if (nombre == null) {
+            return null;
+        }
+
+        String categoria = JOptionPane.showInputDialog(null, "Categoria:");
+        if (categoria == null) {
+            return null;
+        }
+
+        String textoPrecio = JOptionPane.showInputDialog(null, "Precio:");
+        if (textoPrecio == null) {
+            return null;
+        }
+
+        try {
+            double precio = Double.parseDouble(textoPrecio);
+            int opcion = JOptionPane.showConfirmDialog(
+                    null,
+                    "¿El plato esta disponible?",
+                    "Disponibilidad",
+                    JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.CLOSED_OPTION) {
+                return null;
+            }
+
+            boolean disponible = opcion == JOptionPane.YES_OPTION;
+            return new Plato(nombre, categoria, precio, disponible);
+        } catch (NumberFormatException e) {
+            mensaje("El precio debe ser un numero valido.");
+            return null;
+        } catch (IllegalArgumentException e) {
+            mensaje(e.getMessage());
+            return null;
+        }
     }
 
     /**
@@ -29,8 +60,18 @@ public class PlatoVista {
      * @return el id ingresado, o -1 si cancela o escribe algo invalido.
      */
     public int pedirId(String accion) {
-        // TODO (Juan Pablo)
-        return -1;
+        String texto = JOptionPane.showInputDialog(null,
+                "Ingresa el ID del plato a " + accion + ":");
+        if (texto == null) {
+            return -1;
+        }
+
+        try {
+            return Integer.parseInt(texto);
+        } catch (NumberFormatException e) {
+            mensaje("El ID debe ser un numero entero.");
+            return -1;
+        }
     }
 
     /**
@@ -38,26 +79,73 @@ public class PlatoVista {
      * @return el Plato con los datos nuevos o null si cancela.
      */
     public Plato pedirDatosActualizados(int id) {
-        // TODO (Juan Pablo)
-        return null;
+        String nombre = JOptionPane.showInputDialog(null, "Nuevo nombre:");
+        if (nombre == null) {
+            return null;
+        }
+
+        String categoria = JOptionPane.showInputDialog(null, "Nueva categoria:");
+        if (categoria == null) {
+            return null;
+        }
+
+        String textoPrecio = JOptionPane.showInputDialog(null, "Nuevo precio:");
+        if (textoPrecio == null) {
+            return null;
+        }
+
+        try {
+            double precio = Double.parseDouble(textoPrecio);
+            int opcion = JOptionPane.showConfirmDialog(
+                    null,
+                    "¿El plato esta disponible?",
+                    "Disponibilidad",
+                    JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.CLOSED_OPTION) {
+                return null;
+            }
+
+            boolean disponible = opcion == JOptionPane.YES_OPTION;
+            return new Plato(id, nombre, categoria, precio, disponible);
+        } catch (NumberFormatException e) {
+            mensaje("El precio debe ser un numero valido.");
+            return null;
+        } catch (IllegalArgumentException e) {
+            mensaje(e.getMessage());
+            return null;
+        }
     }
 
     /**
      * Muestra la lista formateada con JOptionPane (o un mensaje si esta vacia).
      */
     public void mostrar(List<Plato> platos) {
-        // TODO (Juan Pablo)
+        if (platos == null || platos.isEmpty()) {
+            mensaje("No hay platos registrados.");
+            return;
+        }
+
+        StringBuilder contenido = new StringBuilder();
+        for (Plato plato : platos) {
+            contenido.append(plato.toString()).append("\n");
+        }
+        JOptionPane.showMessageDialog(null, contenido.toString(),
+                "Platos registrados", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
      * Confirmacion Si/No antes de eliminar.
      */
     public boolean confirmar(String mensaje) {
-        // TODO (Juan Pablo): JOptionPane.showConfirmDialog(...) == YES_OPTION
-        return false;
+        return JOptionPane.showConfirmDialog(
+                null,
+                mensaje,
+                "Confirmar",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 
     public void mensaje(String mensaje) {
-        // TODO (Juan Pablo): JOptionPane.showMessageDialog(...)
+        JOptionPane.showMessageDialog(null, mensaje,
+                "Sabor Local", JOptionPane.INFORMATION_MESSAGE);
     }
 }
